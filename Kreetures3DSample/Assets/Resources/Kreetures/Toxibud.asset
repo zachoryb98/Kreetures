@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 122f197f81b745f4fb4d891ac81252a6, type: 3}
+  m_Name: Toxibud
+  m_EditorClassIdentifier: 
+  kreetureName: Toxibud
+  description: 
+  modelPrefab: {fileID: 8995718604172022285, guid: 740a91c480336b74387762edd492cb3d, type: 3}
+  type1: 5
+  type2: 8
+  maxHp: 45
+  attack: 49
+  defense: 49
+  elmtStrike: 65
+  elmtWard: 65
+  speed: 45
+  expYield: 200
+  growthRate: 0
+  catchRate: 255
+  learnableMoves:
+  - moveBase: {fileID: 11400000, guid: 86fb0c20138f41744b7780eecfd6b1ad, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: 44e7c6bd66a9e3045a25a2ba51711d37, type: 2}
+    level: 4
+  - moveBase: {fileID: 11400000, guid: 604c1d7f3a0aa9741bb009108b62f60c, type: 2}
+    level: 6
+  - moveBase: {fileID: 11400000, guid: 4e307d55de095ac41a415d989ce8d28a, type: 2}
+    level: 7
+  - moveBase: {fileID: 11400000, guid: 6bbedb9f3b91e88408addd03d1eed7b9, type: 2}
+    level: 8
