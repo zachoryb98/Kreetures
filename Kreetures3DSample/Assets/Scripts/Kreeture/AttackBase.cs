@@ -20,6 +20,7 @@ public class AttackBase : ScriptableObject
     [SerializeField] MoveEffects effects;
     [SerializeField] List<SecondaryEffects> secondaries;
     [SerializeField] AttackTarget target;
+    [SerializeField] bool requiresMovement;
 
     public string Name
     {
@@ -45,6 +46,11 @@ public class AttackBase : ScriptableObject
     {
         get { return accuracy; }
     }
+
+    public bool RequiresMovement
+	{
+        get { return requiresMovement; }
+	}
 
     public bool AlwaysHits
     {

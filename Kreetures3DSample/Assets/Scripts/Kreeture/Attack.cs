@@ -27,7 +27,7 @@ public class Attack
 			pp = PP
 		};
 		return saveData;
-	}
+	}	
 }
 
 [Serializable]

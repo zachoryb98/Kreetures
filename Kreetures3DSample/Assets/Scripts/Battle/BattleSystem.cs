@@ -17,7 +17,10 @@ public class BattleSystem : MonoBehaviour
 	[SerializeField] BattleUnit playerUnit;
 	[SerializeField] BattleUnit enemyUnit;
 
-	[SerializeField] BattleDialogBox dialogBox;	
+	[SerializeField] Transform playerAttackPosition;
+	[SerializeField] Transform enemyAttackPosition;
+
+	[SerializeField] BattleDialogBox dialogBox;
 
 	[SerializeField] GameObject captureDevice;
 	[SerializeField] MoveSelectionUI moveSelectionUI;
@@ -25,7 +28,7 @@ public class BattleSystem : MonoBehaviour
 	BattleState state;
 	int currentAction;
 	int currentAttack;
-	
+
 	bool aboutToUseChoice = true;
 
 	private void Awake()
@@ -116,7 +119,7 @@ public class BattleSystem : MonoBehaviour
 			yield return dialogBox.TypeDialog($"Go {playerKreeture.Base.Name}!");
 			dialogBox.SetMoveNames(playerUnit.Kreeture.Attacks);
 		}
-		
+
 		ActionSelection();
 	}
 
@@ -265,49 +268,160 @@ public class BattleSystem : MonoBehaviour
 			yield return sourceUnit.Hud.UpdateHP();
 			yield break;
 		}
+
 		yield return ShowStatusChanges(sourceUnit.Kreeture);
 
 		attack.PP--;
 		yield return dialogBox.TypeDialog($"{sourceUnit.Kreeture.Base.Name} used {attack.Base.Name}");
 
-		if (CheckIfMoveHits(attack, sourceUnit.Kreeture, targetUnit.Kreeture))
+		Vector3 originalPosition = sourceUnit.KreetureGameObject.transform.position;
+
+		// Check if the attack requires movement
+		if (attack.Base.RequiresMovement)
 		{
-			sourceUnit.PlayAttackAnimation();
-			yield return new WaitForSeconds(1f);
-			targetUnit.PlayHitAnimation();
-
-			if (attack.Base.Category == MoveCategory.Status)
-			{
-				yield return RunMoveEffects(attack.Base.Effects, sourceUnit.Kreeture, targetUnit.Kreeture, attack.Base.Target);
-			}
+			if (sourceUnit.IsPlayerUnit)
+				yield return MoveKreeture(sourceUnit, playerAttackPosition.transform.position);
 			else
-			{
-				var damageDetails = targetUnit.Kreeture.TakeDamage(attack, sourceUnit.Kreeture);
-				yield return targetUnit.Hud.UpdateHP();
-				yield return ShowDamageDetails(damageDetails);
-			}
+				yield return MoveKreeture(sourceUnit, enemyAttackPosition.transform.position);
+		}
 
-			if (attack.Base.Secondaries != null && attack.Base.Secondaries.Count > 0 && targetUnit.Kreeture.HP > 0)
-			{
-				foreach (var secondary in attack.Base.Secondaries)
-				{
-					var rnd = UnityEngine.Random.Range(1, 101);
-					if (rnd <= secondary.Chance)
-						yield return RunMoveEffects(secondary, sourceUnit.Kreeture, targetUnit.Kreeture, secondary.Target);
-				}
-			}
+		// Play the attack animation
+		sourceUnit.PlayAttackAnimation();
+		yield return new WaitForSeconds(1f);
+		targetUnit.PlayHitAnimation();
 
-			if (targetUnit.Kreeture.HP <= 0)
-			{
-				yield return HandleKreetureFainted(targetUnit);
-			}
-
+		if (attack.Base.Category == MoveCategory.Status)
+		{
+			yield return RunMoveEffects(attack.Base.Effects, sourceUnit.Kreeture, targetUnit.Kreeture, attack.Base.Target);
 		}
 		else
 		{
-			yield return dialogBox.TypeDialog($"{sourceUnit.Kreeture.Base.Name}'s attack missed");
+			var damageDetails = targetUnit.Kreeture.TakeDamage(attack, sourceUnit.Kreeture);
+			yield return targetUnit.Hud.UpdateHP();
+			yield return ShowDamageDetails(damageDetails);
+		}
+
+		if (attack.Base.Secondaries != null && attack.Base.Secondaries.Count > 0 && targetUnit.Kreeture.HP > 0)
+		{
+			foreach (var secondary in attack.Base.Secondaries)
+			{
+				var rnd = UnityEngine.Random.Range(1, 101);
+				if (rnd <= secondary.Chance)
+					yield return RunMoveEffects(secondary, sourceUnit.Kreeture, targetUnit.Kreeture, secondary.Target);
+			}
+		}
+
+		if (attack.Base.RequiresMovement)
+		{
+			// Rotate after the attack animation
+			yield return RotateKreeture(sourceUnit, targetUnit);
+
+			// Run back to the start position
+			yield return MoveKreeture(sourceUnit, originalPosition, true);
+
+			// Rotate after returning
+			yield return RotateKreeture(sourceUnit, targetUnit, true);
+
+			// Go back to idle
+			sourceUnit.KreetureGameObject.GetComponent<Animator>().SetTrigger("IdleTrigger");
+		}
+
+		if (targetUnit.Kreeture.HP <= 0)
+		{
+			yield return HandleKreetureFainted(targetUnit);
 		}
 	}
+
+	IEnumerator MoveKreeture(BattleUnit sourceUnit, Vector3 targetPosition, bool isReturning = false)
+	{
+		if (!isReturning)
+			sourceUnit.KreetureGameObject.GetComponent<Animator>().SetBool("MovingAttack", true);
+		else
+			sourceUnit.KreetureGameObject.GetComponent<Animator>().SetBool("MovingAttack", false);
+
+		sourceUnit.KreetureGameObject.GetComponent<Animator>().SetTrigger("SetRunTrigger");
+		float duration = 1.0f; // Adjust this based on the desired movement speed
+		float rotationSpeed = 2.0f; // Adjust this based on the desired rotation speed
+
+		float elapsedTime = 0f;
+		Vector3 startPosition = sourceUnit.KreetureGameObject.transform.position;
+		targetPosition.y = startPosition.y;
+
+		Quaternion startRotation = sourceUnit.KreetureGameObject.transform.rotation;
+		Quaternion targetRotation = Quaternion.LookRotation(targetPosition - startPosition);
+
+		// Rotate only when returning
+		if (isReturning)
+		{
+			while (elapsedTime < duration)
+			{
+				sourceUnit.KreetureGameObject.transform.rotation = Quaternion.Slerp(startRotation, targetRotation, elapsedTime / duration * rotationSpeed);
+				elapsedTime += Time.deltaTime;
+				yield return null;
+			}
+		}
+
+		elapsedTime = 0f;
+
+		// Move to the target position
+		while (elapsedTime < duration)
+		{
+			sourceUnit.KreetureGameObject.transform.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime / duration);
+			elapsedTime += Time.deltaTime;
+			yield return null;
+		}
+
+		sourceUnit.KreetureGameObject.transform.position = targetPosition;
+	}
+
+	IEnumerator RotateKreeture(BattleUnit sourceUnit, BattleUnit targetUnit, bool isReturning = false)
+	{
+		bool hasAnimPlayed = false;
+		float duration = 0.6f; // Adjust this based on the desired rotation speed
+
+		Vector3 startPosition = sourceUnit.KreetureGameObject.transform.position;
+		Vector3 targetPosition = isReturning ? startPosition : targetUnit.KreetureGameObject.transform.position;
+		targetPosition.y = startPosition.y;
+
+		Quaternion startRotation = sourceUnit.KreetureGameObject.transform.rotation;
+		Quaternion targetRotation = Quaternion.LookRotation(targetPosition - startPosition);
+
+		float elapsedTime = 0f;
+
+		// Rotate only when returning or facing the target
+		while (elapsedTime < duration)
+		{
+			// Interpolate rotation
+			sourceUnit.KreetureGameObject.transform.rotation = Quaternion.Slerp(startRotation, targetRotation, elapsedTime / duration);
+
+			if (isReturning)
+			{
+				if (!hasAnimPlayed)
+				{
+					duration = 0.5f; // Adjust this based on the desired rotation speed
+									 // Start the spin animation immediately
+					sourceUnit.KreetureGameObject.GetComponent<Animator>().SetTrigger("SpinTrigger");
+					hasAnimPlayed = true;
+				}
+			}
+			else
+			{
+				if (!hasAnimPlayed && elapsedTime >= duration * 0.75f)
+				{
+					// Start the spin animation immediately
+					sourceUnit.KreetureGameObject.GetComponent<Animator>().SetTrigger("SpinTrigger");
+					hasAnimPlayed = true;
+				}
+			}
+
+			// Increment time
+			elapsedTime += Time.deltaTime;
+
+			// Wait for the next frame to allow animation to progress
+			yield return null;
+		}
+	}
+
 
 	IEnumerator RunMoveEffects(MoveEffects effects, Kreeture source, Kreeture target, AttackTarget moveTarget)
 	{
@@ -671,7 +785,7 @@ public class BattleSystem : MonoBehaviour
 			GameManager.Instance.partyScreen.gameObject.SetActive(false);
 
 			if (GameManager.Instance.partyScreen.CalledFrom == BattleState.ActionSelection)
-			{				
+			{
 				StartCoroutine(RunTurns(BattleAction.SwitchKreeture));
 			}
 			else
@@ -704,7 +818,7 @@ public class BattleSystem : MonoBehaviour
 				StartCoroutine(SendNextTrainerKreeture());
 			}
 			else
-			{				
+			{
 				ActionSelection();
 			}
 

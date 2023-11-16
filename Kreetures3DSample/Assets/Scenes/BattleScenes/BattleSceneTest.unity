@@ -2207,7 +2207,7 @@ GameObject:
   - component: {fileID: 439843397}
   - component: {fileID: 439843396}
   - component: {fileID: 439843395}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2499,6 +2499,8 @@ MonoBehaviour:
   inputActions: {fileID: -944628639613478452, guid: 41c6dcdad7a70614a8fd13c83b75f840, type: 3}
   playerUnit: {fileID: 596032369}
   enemyUnit: {fileID: 1985971448}
+  playerAttackPosition: {fileID: 830529261}
+  enemyAttackPosition: {fileID: 1341980917}
   dialogBox: {fileID: 1375302075}
   captureDevice: {fileID: 9199199436939860918, guid: 372cc552245591c459b5b3b4d124da13, type: 3}
   moveSelectionUI: {fileID: 2140831847}
@@ -2997,6 +2999,7 @@ MonoBehaviour:
   KreetureGameObject: {fileID: 0}
   playerSpawnPosition: {fileID: 596032368}
   enemySpawnPosition: {fileID: 1985971447}
+  kreetureModel: {fileID: 0}
 --- !u!1 &618851270
 GameObject:
   m_ObjectHideFlags: 0
@@ -4196,6 +4199,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 817604974}
   m_CullTransparentMesh: 1
+--- !u!1 &830529260
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 830529261}
+  m_Layer: 0
+  m_Name: PlayerAttackPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &830529261
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830529260}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: -1.19}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &836890373
 GameObject:
   m_ObjectHideFlags: 0
@@ -6840,6 +6874,37 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &1341980916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1341980917}
+  m_Layer: 0
+  m_Name: EnemyAttackPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1341980917
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341980916}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 1.27}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1375302071
 GameObject:
   m_ObjectHideFlags: 0
@@ -10558,6 +10623,7 @@ MonoBehaviour:
   KreetureGameObject: {fileID: 0}
   playerSpawnPosition: {fileID: 596032368}
   enemySpawnPosition: {fileID: 1985971447}
+  kreetureModel: {fileID: 0}
 --- !u!1 &2015173432
 GameObject:
   m_ObjectHideFlags: 0

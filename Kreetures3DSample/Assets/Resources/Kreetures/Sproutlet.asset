@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 122f197f81b745f4fb4d891ac81252a6, type: 3}
+  m_Name: Sproutlet
+  m_EditorClassIdentifier: 
+  kreetureName: Sproutlet
+  description: 
+  modelPrefab: {fileID: 3992660179400301931, guid: d884340a365da1f44ba17462199db5c8, type: 3}
+  type1: 5
+  type2: 0
+  maxHp: 39
+  attack: 40
+  defense: 38
+  elmtStrike: 30
+  elmtWard: 30
+  speed: 25
+  expYield: 60
+  growthRate: 0
+  catchRate: 255
+  learnableMoves:
+  - moveBase: {fileID: 11400000, guid: 86fb0c20138f41744b7780eecfd6b1ad, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: 4e307d55de095ac41a415d989ce8d28a, type: 2}
+    level: 3
+  - moveBase: {fileID: 11400000, guid: 44e7c6bd66a9e3045a25a2ba51711d37, type: 2}
+    level: 4
+  - moveBase: {fileID: 11400000, guid: 5d3d6f203ecc91b44a4123b6e84d37f0, type: 2}
+    level: 5

@@ -20,7 +20,7 @@ public class BattleUnit : MonoBehaviour
 		get { return hud;  }
 	}
 
-	[SerializeField] GameObject KreetureGameObject;
+	[SerializeField] public GameObject KreetureGameObject;
 
 	[Header("Where to place the Kreetures")]
 	public Transform playerSpawnPosition;
