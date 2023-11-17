@@ -49,6 +49,9 @@ public class GameManager : MonoBehaviour
 
 			menuController = FindObjectOfType<MenuController>();
 
+			//Cursor.lockState = CursorLockMode.Locked;
+			//Cursor.visible = false;
+
 			DontDestroyOnLoad(gameObject); // Keep the GameManager object when changing scenes
 		}
 		else
