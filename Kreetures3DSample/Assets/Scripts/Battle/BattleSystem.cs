@@ -311,6 +311,9 @@ public class BattleSystem : MonoBehaviour
 			}
 		}
 
+		if(targetUnit.Kreeture.HP <= 0)
+			targetUnit.PlayFaintAnimation();
+
 		if (attack.Base.RequiresMovement)
 		{
 			// Rotate after the attack animation
@@ -327,9 +330,7 @@ public class BattleSystem : MonoBehaviour
 		}
 
 		if (targetUnit.Kreeture.HP <= 0)
-		{
 			yield return HandleKreetureFainted(targetUnit);
-		}
 	}
 
 	IEnumerator MoveKreeture(BattleUnit sourceUnit, Vector3 targetPosition, bool isReturning = false)
@@ -461,6 +462,7 @@ public class BattleSystem : MonoBehaviour
 		yield return sourceUnit.Hud.UpdateHP();
 		if (sourceUnit.Kreeture.HP <= 0)
 		{
+			sourceUnit.PlayFaintAnimation();
 			yield return HandleKreetureFainted(sourceUnit);
 			yield return new WaitUntil(() => state == BattleState.RunningTurn);
 		}
@@ -503,8 +505,7 @@ public class BattleSystem : MonoBehaviour
 	IEnumerator HandleKreetureFainted(BattleUnit faintedUnit)
 	{
 		yield return dialogBox.TypeDialog($"{faintedUnit.Kreeture.Base.Name} Fainted");
-		faintedUnit.PlayFaintAnimation();
-		yield return new WaitForSeconds(2f);
+		yield return new WaitForSeconds(.5f);
 		faintedUnit.DestroyFaintedModel();
 
 		if (!faintedUnit.IsPlayerUnit)
