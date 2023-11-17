@@ -2999,7 +2999,6 @@ MonoBehaviour:
   KreetureGameObject: {fileID: 0}
   playerSpawnPosition: {fileID: 596032368}
   enemySpawnPosition: {fileID: 1985971447}
-  kreetureModel: {fileID: 0}
 --- !u!1 &618851270
 GameObject:
   m_ObjectHideFlags: 0
@@ -4914,9 +4913,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 243.5, y: -37}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 487, y: 74}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &1042601731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6941,10 +6940,10 @@ RectTransform:
   m_Father: {fileID: 469651385}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -155.67, y: 400}
-  m_SizeDelta: {x: -312.65, y: 73.5249}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 244.33, y: -16}
+  m_SizeDelta: {x: 487.35, y: 73.5249}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1375302073
 MonoBehaviour:
@@ -10623,7 +10622,6 @@ MonoBehaviour:
   KreetureGameObject: {fileID: 0}
   playerSpawnPosition: {fileID: 596032368}
   enemySpawnPosition: {fileID: 1985971447}
-  kreetureModel: {fileID: 0}
 --- !u!1 &2015173432
 GameObject:
   m_ObjectHideFlags: 0

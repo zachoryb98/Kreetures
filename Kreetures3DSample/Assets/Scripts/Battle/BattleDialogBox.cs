@@ -59,11 +59,11 @@ public class BattleDialogBox : MonoBehaviour
 
 	public IEnumerator hideDialog()
 	{
-		yield return GetComponent<RectTransform>().DOAnchorPos(new Vector2(-150, 400), .25f);
+		yield return GetComponent<RectTransform>().DOAnchorPos(new Vector2(250, 100), .25f);
 	}
 	private IEnumerator ShowDialog()
 	{
-		yield return this.GetComponent<RectTransform>().DOAnchorPos(new Vector2(-150, 300), .25f);
+		yield return this.GetComponent<RectTransform>().DOAnchorPos(new Vector2(250, -80), .25f);
 	}
 
 	public void EnableDialogText(bool enabled)
