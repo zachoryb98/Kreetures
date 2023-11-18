@@ -23,9 +23,12 @@ public class PartyMemberUI : MonoBehaviour
 
     public void SetSelected(bool selected)
     {
-        if (selected)
-            nameText.color = GlobalSettings.i.HighlightedColor;
-        else
-            nameText.color = Color.white;
+        if(GlobalSettings.i != null)
+		{
+            if (selected)
+                nameText.color = GlobalSettings.i.HighlightedColor;
+            else
+                nameText.color = Color.white;
+        }        
     }
 }

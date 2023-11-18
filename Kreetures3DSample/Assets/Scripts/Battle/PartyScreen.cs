@@ -13,6 +13,7 @@ public class PartyScreen : MonoBehaviour
 
     PartyMemberUI[] memberSlots;
     List<Kreeture> kreetures;
+    KreetureParty party;
 
     int selection = 0;
     public Kreeture SelectedMember => kreetures[selection];
@@ -25,16 +26,21 @@ public class PartyScreen : MonoBehaviour
     public void Init()
     {
         memberSlots = GetComponentsInChildren<PartyMemberUI>(true);
+        party = KreetureParty.GetPlayerParty();
+        SetPartyData();
+
+        party.OnUpdated += SetPartyData;
     }
 
-    public void SetPartyData(List<Kreeture> kreetures)
+    public void SetPartyData()
     {
-        this.kreetures = kreetures;
+        kreetures = party.Kreetures;
 
         for (int i = 0; i < memberSlots.Length; i++)
         {
             if (i < kreetures.Count)
-			{
+			{                
+                kreetures[i].Init();
                 memberSlots[i].gameObject.SetActive(true);
                 memberSlots[i].SetData(kreetures[i]);
             }                

@@ -159,8 +159,8 @@ public class BattleSystem : MonoBehaviour
 	void OpenPartyScreen()
 	{
 		GameManager.Instance.partyScreen.CalledFrom = state;
+		
 		state = BattleState.PartyScreen;
-		GameManager.Instance.partyScreen.SetPartyData(playerParty.Kreetures);
 		GameManager.Instance.partyScreen.ShowPartyScreen();
 		GameManager.Instance.partyScreen.gameObject.SetActive(true);
 	}

@@ -41,7 +41,9 @@ public class GameManager : MonoBehaviour
 	{
 		if (Instance == null)
 		{
-			Instance = this;
+			Instance = this;			
+			var spawner = FindObjectOfType<PlayerSpawnChecker>();
+			spawner.SpawnOnCommand();
 			KreetureDB.Init();
 			ConditionsDB.Init();
 			AttackDB.Init();
@@ -317,10 +319,8 @@ public class GameManager : MonoBehaviour
 		else if (selectedItem == 1)
 		{
 			// kreetures			
-			//Only should be one party screen in overworld 			
-			partyScreen.SetPartyData(playerTeam.Kreetures);
+			//Only should be one party screen in overworld 						
 			state = GameState.PartyScreen;
-
 			partyScreen.gameObject.SetActive(true);
 		}
 		else if (selectedItem == 2)

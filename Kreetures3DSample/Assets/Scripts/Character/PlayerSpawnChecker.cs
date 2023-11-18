@@ -27,5 +27,18 @@ public class PlayerSpawnChecker : MonoBehaviour
             playerSpawner.SpawnPlayerAtPosition(SpawnPosition, SpawnRotation);
             Destroy(this.gameObject);
 		}
+		else
+		{
+            Destroy(this.gameObject);
+        }
     }
+
+    public void SpawnOnCommand()
+	{
+        if(GameManager.Instance.playerController == null)
+		{
+            playerSpawner.SpawnPlayerAtPosition(SpawnPosition, SpawnRotation);
+            Destroy(this.gameObject);
+        }
+	}
 }
