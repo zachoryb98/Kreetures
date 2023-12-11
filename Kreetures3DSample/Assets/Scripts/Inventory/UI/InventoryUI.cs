@@ -40,7 +40,9 @@ public class InventoryUI : MonoBehaviour
 	private void Start()
 	{
 		UpdateItemList();
-	}
+
+        inventory.OnUpdated += UpdateItemList;
+    }
 
 	void UpdateItemList()
 	{
@@ -95,8 +97,8 @@ public class InventoryUI : MonoBehaviour
 			//Handle Party Selection
 			Action onSelected = () =>
 			{
-				//Use item on selected Kreeture
-			};
+                StartCoroutine(UseItem());
+            };
 
 			Action onBackPartyScreen = () =>
 			{
@@ -107,7 +109,25 @@ public class InventoryUI : MonoBehaviour
 		}
 	}
 
-	void UpdateItemSelection()
+	//TODO: Implement Inventory in Battle
+    IEnumerator UseItem()
+    {
+        state = InventoryUIState.Busy;
+
+        var usedItem = inventory.UseItem(selectedItem, partyScreen.SelectedMember);
+        if (usedItem != null)
+        {
+            yield return DialogManager.Instance.ShowDialogText($"The player used {usedItem.Name}");
+        }
+        else
+        {
+            yield return DialogManager.Instance.ShowDialogText($"It won't have any affect!");
+        }
+
+        ClosePartyScreen();
+    }
+
+    void UpdateItemSelection()
 	{
 		for (int i = 0; i < slotUIList.Count; i++)
 		{

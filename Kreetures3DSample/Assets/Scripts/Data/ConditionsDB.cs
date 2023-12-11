@@ -26,7 +26,7 @@ public class ConditionsDB
                 StartMessage = "has been poisoned",
                 OnAfterTurn = (Kreeture kreeture) =>
                 {
-                    kreeture.UpdateHP(kreeture.MaxHp / 8);
+                    kreeture.DecreaseHP(kreeture.MaxHp / 8);
                     kreeture.StatusChanges.Enqueue($"{kreeture.Base.Name} hurt itself due to poison");
                 }
             }
@@ -40,7 +40,7 @@ public class ConditionsDB
                 StartMessage = "has been burned",
                 OnAfterTurn = (Kreeture kreeture) =>
                 {
-                    kreeture.UpdateHP(kreeture.MaxHp / 16);
+                    kreeture.DecreaseHP(kreeture.MaxHp / 16);
                     kreeture.StatusChanges.Enqueue($"{kreeture.Base.Name} hurt itself due to burn");
                 }
             }
@@ -143,7 +143,7 @@ public class ConditionsDB
 
                     // Hurt by confusion
                     kreeture.StatusChanges.Enqueue($"{kreeture.Base.Name} is confused");
-                    kreeture.UpdateHP(kreeture.MaxHp / 8);
+                    kreeture.DecreaseHP(kreeture.MaxHp / 8);
                     kreeture.StatusChanges.Enqueue($"It hurt itself due to confusion");
                     return false;
                 }

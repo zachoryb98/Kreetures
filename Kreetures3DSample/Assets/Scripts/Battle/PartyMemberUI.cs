@@ -12,15 +12,33 @@ public class PartyMemberUI : MonoBehaviour
 
     Kreeture _kreeture;
 
-    public void SetData(Kreeture kreeture)
+    /// <summary>
+    /// Initializer Method
+    /// </summary>
+    /// <param name="kreeture"></param>
+    public void Init(Kreeture kreeture)
     {
         _kreeture = kreeture;
+        UpdateData();
 
-        nameText.text = kreeture.Base.Name;
-        levelText.text = "Lvl " + kreeture.Level;
-        hpBar.SetHP((float)kreeture.HP / kreeture.MaxHp);
+        //Observer pattern to update health
+        _kreeture.OnHPChanged += UpdateData;
     }
 
+    /// <summary>
+    /// Updates Party Member UI information for party screen
+    /// </summary>
+    void UpdateData()
+    {
+        nameText.text = _kreeture.Base.Name;
+        levelText.text = "Lvl " + _kreeture.Level;
+        hpBar.SetHP((float)_kreeture.HP / _kreeture.MaxHp);
+    }
+
+    /// <summary>
+    /// Sets selected color
+    /// </summary>
+    /// <param name="selected"></param>
     public void SetSelected(bool selected)
     {
         if(GlobalSettings.i != null)

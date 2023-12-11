@@ -20,4 +20,17 @@ public class RecoveryItem : ItemBase
     [Header("Revive")]
     [SerializeField] bool revive;
     [SerializeField] bool maxRevive;
+
+    public override bool Use(Kreeture kreeture)
+    {
+        if (hpAmount > 0)
+        {
+            if (kreeture.HP == kreeture.MaxHp)
+                return false;
+
+            kreeture.IncreaseHP(hpAmount);
+        }
+
+        return true;
+    }
 }

@@ -46,8 +46,9 @@ public class Kreeture
 	public Queue<string> StatusChanges { get; private set; } 
 	public bool HpChanged { get; set; }
 	public event System.Action OnStatusChanged;
+    public event System.Action OnHPChanged;
 
-	public void Init()
+    public void Init()
 	{
 		// Generate Moves
 		Attacks = new List<Attack>();
@@ -243,18 +244,26 @@ public class Kreeture
 		float d = a * move.Base.Power * ((float)attack / defense) + 2;
 		int damage = Mathf.FloorToInt(d * modifiers);
 
-		UpdateHP(damage);
+		DecreaseHP(damage);
 
 		return damageDetails;
 	}
 
-	public void UpdateHP(int damage)
+	public void DecreaseHP(int damage)
 	{
 		HP = Mathf.Clamp(HP - damage, 0, MaxHp);
+		OnHPChanged?.Invoke();
 		HpChanged = true;
 	}
 
-	public void SetStatus(ConditionID conditionId)
+    public void IncreaseHP(int amount)
+    {
+        HP = Mathf.Clamp(HP + amount, 0, MaxHp);
+        OnHPChanged?.Invoke();
+        HpChanged = true;
+    }
+
+    public void SetStatus(ConditionID conditionId)
 	{
 		if (Status != null) return;
 

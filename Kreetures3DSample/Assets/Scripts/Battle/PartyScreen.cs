@@ -42,7 +42,7 @@ public class PartyScreen : MonoBehaviour
 			{                
                 kreetures[i].Init();
                 memberSlots[i].gameObject.SetActive(true);
-                memberSlots[i].SetData(kreetures[i]);
+                memberSlots[i].Init(kreetures[i]);
             }                
             else
                 memberSlots[i].gameObject.SetActive(false);

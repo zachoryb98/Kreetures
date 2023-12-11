@@ -19,6 +19,7 @@ public class KreetureParty : MonoBehaviour
 		set
 		{
 			kreetures = value;
+			OnUpdated?.Invoke();
 		}
 	}
 
