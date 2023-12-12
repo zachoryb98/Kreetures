@@ -28,6 +28,12 @@ public class BattleHud : MonoBehaviour
 
 	public void SetData(Kreeture kreeture)
 	{
+		if(_kreeture != null)
+		{
+			_kreeture.OnStatusChanged -= SetStatusText;
+			_kreeture.OnHPChanged -= UpdateHP;
+		}
+
 		_kreeture = kreeture;
 
 		nameText.text = kreeture.Base.Name;
@@ -46,6 +52,7 @@ public class BattleHud : MonoBehaviour
 
 		SetStatusText();
 		_kreeture.OnStatusChanged += SetStatusText;
+		_kreeture.OnHPChanged += UpdateHP;
 	}
 
 	void SetStatusText()
@@ -94,12 +101,19 @@ public class BattleHud : MonoBehaviour
 		return Mathf.Clamp01(normalizedExp);
 	}
 
-	public IEnumerator UpdateHP()
+	public void UpdateHP()
 	{
-		if (_kreeture.HpChanged)
-		{
-			yield return hpBar.SetHPSmooth((float)_kreeture.HP / _kreeture.MaxHp);
-			_kreeture.HpChanged = false;
-		}
+		StartCoroutine(UpdateHPAsync());
+	}
+
+
+	public IEnumerator UpdateHPAsync()
+	{
+		yield return hpBar.SetHPSmooth((float)_kreeture.HP / _kreeture.MaxHp);
+	}
+
+	public IEnumerator WaitForHPUpdate()
+	{
+		yield return new WaitUntil(() => hpBar.isUpdating == false);
 	}
 }

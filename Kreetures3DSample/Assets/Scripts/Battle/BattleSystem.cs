@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public enum BattleState { Start, ActionSelection, MoveSelection, RunningTurn, Busy, PartyScreen, BattleOver, MoveToForget, AboutToUse }
+public enum BattleState { Start, ActionSelection, MoveSelection, RunningTurn, Busy, Bag, PartyScreen, BattleOver, MoveToForget, AboutToUse }
 
 public enum BattleAction { Move, SwitchKreeture, UseItem, Run }
 
@@ -24,6 +24,7 @@ public class BattleSystem : MonoBehaviour
 
 	[SerializeField] GameObject captureDevice;
 	[SerializeField] MoveSelectionUI moveSelectionUI;
+	[SerializeField] InventoryUI inventoryUI;
 
 	BattleState state;
 	int currentAction;
@@ -35,6 +36,7 @@ public class BattleSystem : MonoBehaviour
 	{
 		// Enable the Input Actions
 		inputActions.Enable();
+		inventoryUI = GameManager.Instance.inventoryUI;
 	}
 
 	KreetureParty playerParty;
@@ -156,6 +158,12 @@ public class BattleSystem : MonoBehaviour
 		dialogBox.EnableActionSelector(true);
 	}
 
+	void OpenBag()
+	{
+		state = BattleState.Bag;
+		inventoryUI.gameObject.SetActive(true);
+	}
+
 	void OpenPartyScreen()
 	{
 		GameManager.Instance.partyScreen.CalledFrom = state;
@@ -241,7 +249,6 @@ public class BattleSystem : MonoBehaviour
 			else if (playerAction == BattleAction.UseItem)
 			{
 				dialogBox.EnableActionSelector(false);
-				yield return ThrowCaptureDevice();
 			}
 			else if (playerAction == BattleAction.Run)
 			{
@@ -265,7 +272,7 @@ public class BattleSystem : MonoBehaviour
 		if (!canRunMove)
 		{
 			yield return ShowStatusChanges(sourceUnit.Kreeture);
-			yield return sourceUnit.Hud.UpdateHP();
+			yield return sourceUnit.Hud.WaitForHPUpdate();
 			yield break;
 		}
 
@@ -297,7 +304,7 @@ public class BattleSystem : MonoBehaviour
 		else
 		{
 			var damageDetails = targetUnit.Kreeture.TakeDamage(attack, sourceUnit.Kreeture);
-			yield return targetUnit.Hud.UpdateHP();
+			yield return targetUnit.Hud.UpdateHPAsync();
 			yield return ShowDamageDetails(damageDetails);
 		}
 
@@ -459,7 +466,7 @@ public class BattleSystem : MonoBehaviour
 		// Statuses like burn or psn will hurt the Kreeture after the turn
 		sourceUnit.Kreeture.OnAfterTurn();
 		yield return ShowStatusChanges(sourceUnit.Kreeture);
-		yield return sourceUnit.Hud.UpdateHP();
+		yield return sourceUnit.Hud.WaitForHPUpdate();
 		if (sourceUnit.Kreeture.HP <= 0)
 		{
 			sourceUnit.PlayFaintAnimation();
@@ -608,6 +615,32 @@ public class BattleSystem : MonoBehaviour
 		{
 			HandlePartySelection();
 		}
+		else if (state == BattleState.Bag)
+		{
+			Action onBack = () =>
+			{
+				inventoryUI.gameObject.SetActive(false);
+				state = BattleState.ActionSelection;
+				enemyUnit.Hud.gameObject.SetActive(true);
+				playerUnit.Hud.gameObject.SetActive(true);
+			};
+
+
+			enemyUnit.Hud.gameObject.SetActive(false);
+			playerUnit.Hud.gameObject.SetActive(false);
+
+
+			Action onItemUsed = () =>
+			{
+				state = BattleState.Busy;
+				inventoryUI.gameObject.SetActive(false);
+				StartCoroutine(RunTurns(BattleAction.UseItem));
+			};
+
+			enemyUnit.Hud.gameObject.SetActive(true);
+			playerUnit.Hud.gameObject.SetActive(true);
+			inventoryUI.HandleUpdate(onBack, onItemUsed);
+		}
 		else if (state == BattleState.AboutToUse)
 		{
 			HandleAboutToUse();
@@ -692,7 +725,7 @@ public class BattleSystem : MonoBehaviour
 			else if (currentAction == 2)
 			{
 				//Inventory
-				StartCoroutine(RunTurns(BattleAction.UseItem));
+				OpenBag();
 			}
 			else if (currentAction == 3)
 			{

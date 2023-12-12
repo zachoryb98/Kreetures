@@ -37,7 +37,7 @@ public class Inventory : MonoBehaviour
 
     public static Inventory GetInventory()
     {
-        return FindObjectOfType<PlayerController>().GetComponent<Inventory>();
+        return GameManager.Instance.playerController.GetComponent<Inventory>();
     }
 }
 
