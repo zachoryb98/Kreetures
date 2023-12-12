@@ -1649,21 +1649,11 @@ MonoBehaviour:
     count: 6
   - item: {fileID: 11400000, guid: 980dae6a434c6e54bb73bebbf17c3759, type: 2}
     count: 2
-  - item: {fileID: 11400000, guid: 980dae6a434c6e54bb73bebbf17c3759, type: 2}
+  - item: {fileID: 11400000, guid: fce0c84bbfe78944eb4e1a0bd2bbad1c, type: 2}
     count: 2
-  - item: {fileID: 11400000, guid: 980dae6a434c6e54bb73bebbf17c3759, type: 2}
+  - item: {fileID: 11400000, guid: c5220ca98d3665846b592f172308b283, type: 2}
     count: 2
-  - item: {fileID: 11400000, guid: 980dae6a434c6e54bb73bebbf17c3759, type: 2}
-    count: 2
-  - item: {fileID: 11400000, guid: 980dae6a434c6e54bb73bebbf17c3759, type: 2}
-    count: 2
-  - item: {fileID: 11400000, guid: 980dae6a434c6e54bb73bebbf17c3759, type: 2}
-    count: 2
-  - item: {fileID: 11400000, guid: 980dae6a434c6e54bb73bebbf17c3759, type: 2}
-    count: 2
-  - item: {fileID: 11400000, guid: 980dae6a434c6e54bb73bebbf17c3759, type: 2}
-    count: 2
-  - item: {fileID: 11400000, guid: 980dae6a434c6e54bb73bebbf17c3759, type: 2}
+  - item: {fileID: 11400000, guid: fd5e2b3a222e87c4483714794df92451, type: 2}
     count: 2
 --- !u!1 &6384640778057468217
 GameObject:

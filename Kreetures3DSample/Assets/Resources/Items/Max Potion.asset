@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Max Potion
   description: Recovers all health of a kreeture.
   icon: {fileID: -234444767, guid: 337737d393d90b54cbfdd9eb7a99f331, type: 3}
-  hpAmount: 0
+  hpAmount: 50
   restoreMaxHP: 1
   ppAmount: 0
   restoreMaxPP: 0

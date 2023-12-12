@@ -27,7 +27,12 @@ public class Attack
 			pp = PP
 		};
 		return saveData;
-	}	
+	}
+
+	public void IncreasePP(int amount)
+	{
+		PP = Mathf.Clamp(PP + amount, 0, Base.PP);
+	}
 }
 
 [Serializable]
