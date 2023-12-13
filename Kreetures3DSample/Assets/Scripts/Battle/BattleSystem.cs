@@ -148,6 +148,10 @@ public class BattleSystem : MonoBehaviour
 		{
 			GameManager.Instance.SetTrainerLoss();
 		}
+
+		playerUnit.Hud.ClearData();
+		enemyUnit.Hud.ClearData();
+		
 		ExitBattle();
 	}
 

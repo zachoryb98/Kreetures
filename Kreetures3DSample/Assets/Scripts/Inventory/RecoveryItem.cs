@@ -58,7 +58,7 @@ public class RecoveryItem : ItemBase
 		// Recover Status
 		if (recoverAllStatus || status != ConditionID.none)
 		{
-			if (kreeture.Status == null && kreeture.VolatileStatus != null)
+			if (kreeture.Status == null && kreeture.VolatileStatus == null)
 				return false;
 
 			if (recoverAllStatus)

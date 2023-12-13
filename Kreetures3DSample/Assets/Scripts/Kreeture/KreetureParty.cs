@@ -23,7 +23,7 @@ public class KreetureParty : MonoBehaviour
 		}
 	}
 
-	private void Start()
+	private void Awake()
 	{
 		foreach (var kreeture in kreetures)
 		{
