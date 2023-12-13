@@ -1655,6 +1655,12 @@ MonoBehaviour:
     count: 2
   - item: {fileID: 11400000, guid: fd5e2b3a222e87c4483714794df92451, type: 2}
     count: 2
+  captureDeviceSlots:
+  - item: {fileID: 11400000, guid: f90be6ba07e31e04c8b9caa166577cf3, type: 2}
+    count: 5
+  - item: {fileID: 11400000, guid: 337d55e0b9a393546a631d5539a0f316, type: 2}
+    count: 5
+  newMoveSlots: []
 --- !u!1 &6384640778057468217
 GameObject:
   m_ObjectHideFlags: 0

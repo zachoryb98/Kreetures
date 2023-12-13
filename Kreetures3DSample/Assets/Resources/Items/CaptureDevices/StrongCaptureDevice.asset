@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94df9adb2c93c164290fddd8ac920c4d, type: 3}
+  m_Name: StrongCaptureDevice
+  m_EditorClassIdentifier: 
+  name: Strong Capture Device
+  description: A stronger capture device that has a greater chance of taming a Kreeture
+  icon: {fileID: 21300000, guid: d60cb6394a5c44d858b455ce9bc47d30, type: 3}
