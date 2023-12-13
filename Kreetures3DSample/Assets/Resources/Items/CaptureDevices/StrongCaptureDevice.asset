@@ -15,3 +15,4 @@ MonoBehaviour:
   name: Strong Capture Device
   description: A stronger capture device that has a greater chance of taming a Kreeture
   icon: {fileID: 21300000, guid: d60cb6394a5c44d858b455ce9bc47d30, type: 3}
+  catchRateModifier: 1.5

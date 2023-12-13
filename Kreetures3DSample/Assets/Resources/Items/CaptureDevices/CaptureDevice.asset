@@ -16,3 +16,4 @@ MonoBehaviour:
   description: This is the most common device used to tame Kreetures. It has a pretty
     decent chance of capturing weak Kreetures
   icon: {fileID: 21300000, guid: d60cb6394a5c44d858b455ce9bc47d30, type: 3}
+  catchRateModifier: 1

@@ -21,7 +21,7 @@ public class InventoryUI : MonoBehaviour
 
 	[SerializeField] PartyScreen partyScreen;
 
-	Action OnItemUsed;
+	Action<ItemBase> OnItemUsed;
 
 	int selectedItem = 0;
 	int selectedCategory = 0;
@@ -34,8 +34,6 @@ public class InventoryUI : MonoBehaviour
 	Inventory inventory;
 	RectTransform itemListRect;
 
-	private bool justOpened = true;
-
 	private void Awake()
 	{
 		inventory = Inventory.GetInventory();
@@ -46,8 +44,8 @@ public class InventoryUI : MonoBehaviour
 	{
 		UpdateItemList();
 
-        inventory.OnUpdated += UpdateItemList;
-    }
+		inventory.OnUpdated += UpdateItemList;
+	}
 
 	void UpdateItemList()
 	{
@@ -67,8 +65,18 @@ public class InventoryUI : MonoBehaviour
 		UpdateItemSelection();
 	}
 
-	public void HandleUpdate(Action onBack, Action onItemUsed=null)
+
+
+	public void HandleUpdate(Action onBack, Action<ItemBase> onItemUsed = null)
 	{
+		StartCoroutine(DelayedHandleUpdate(onBack, onItemUsed));		
+	}
+
+	private IEnumerator DelayedHandleUpdate(Action onBack, Action<ItemBase> onItemUsed)
+	{
+		//Wait needed for UX
+		yield return new WaitForSeconds(0.5f); // Adjust the delay as needed
+
 		if (state == InventoryUIState.ItemSelection)
 		{
 			this.OnItemUsed = onItemUsed;
@@ -86,18 +94,18 @@ public class InventoryUI : MonoBehaviour
 				--selectedCategory;
 
 			//Allows endless left and right scrolling
-			if(selectedCategory > Inventory.ItemCategories.Count - 1)
+			if (selectedCategory > Inventory.ItemCategories.Count - 1)
 			{
 				selectedCategory = 0;
 			}
-			else if(selectedCategory < 0)
+			else if (selectedCategory < 0)
 			{
 				selectedCategory = Inventory.ItemCategories.Count - 1;
 			}
 
 			selectedItem = Mathf.Clamp(selectedItem, 0, inventory.GetSlotsByCategory(selectedCategory).Count - 1);
 
-			if(prevCategory != selectedCategory)
+			if (prevCategory != selectedCategory)
 			{
 				ResetSelection();
 				categoryText.text = Inventory.ItemCategories[selectedCategory];
@@ -107,17 +115,16 @@ public class InventoryUI : MonoBehaviour
 			if (prevSelection != selectedItem)
 				UpdateItemSelection();
 
+			//Wait needed for UX
+			yield return new WaitForSeconds(0.5f); // Adjust the delay as needed
+
 			if (Input.GetKeyDown(KeyCode.Z))
 			{
-				if (!justOpened)
-					OpenPartyScreen();
-				else
-					justOpened = false;
+				ItemSelected();
 			}
 
 			else if (Input.GetKeyDown(KeyCode.X))
 			{
-				justOpened = true;
 				onBack?.Invoke();
 			}
 		}
@@ -125,9 +132,9 @@ public class InventoryUI : MonoBehaviour
 		{
 			//Handle Party Selection
 			Action onSelected = () =>
-			{			
-                StartCoroutine(UseItem());
-            };
+			{
+				StartCoroutine(UseItem());
+			};
 
 			Action onBackPartyScreen = () =>
 			{
@@ -138,26 +145,42 @@ public class InventoryUI : MonoBehaviour
 		}
 	}
 
-	//TODO: Implement Inventory in Battle
-    IEnumerator UseItem()
-    {
-        state = InventoryUIState.Busy;
+	void ItemSelected()
+	{
+		if (selectedCategory == (int)ItemCategory.CaptureDevices)
+		{
+			StartCoroutine(UseItem());
+		}
+		else
+		{
+			OpenPartyScreen();
+		}
+	}
 
-        var usedItem = inventory.UseItem(selectedItem, partyScreen.SelectedMember, selectedCategory);
-        if (usedItem != null)
-        {
-            yield return DialogManager.Instance.ShowDialogText($"The player used {usedItem.Name}");
-			OnItemUsed?.Invoke();
-        }
-        else
-        {
-            yield return DialogManager.Instance.ShowDialogText($"It won't have any affect!");
-        }
+	IEnumerator UseItem()
+	{
+		if(state != InventoryUIState.Busy)
+		{
+			state = InventoryUIState.Busy;
 
-        ClosePartyScreen();
-    }
+			var usedItem = inventory.UseItem(selectedItem, partyScreen.SelectedMember, selectedCategory);
+			if (usedItem != null)
+			{
+				if (!(usedItem is CaptureDeviceItem))
+					yield return DialogManager.Instance.ShowDialogText($"The player used {usedItem.Name}");
 
-    void UpdateItemSelection()
+				OnItemUsed?.Invoke(usedItem);
+			}
+			else
+			{
+				yield return DialogManager.Instance.ShowDialogText($"It won't have any affect!");
+			}
+
+			ClosePartyScreen();
+		}
+	}
+
+	void UpdateItemSelection()
 	{
 		var slots = inventory.GetSlotsByCategory(selectedCategory);
 
@@ -170,14 +193,14 @@ public class InventoryUI : MonoBehaviour
 			else
 				slotUIList[i].NameText.color = Color.white;
 		}
-		
-		if(slots.Count > 0)
+
+		if (slots.Count > 0)
 		{
 			var item = slots[selectedItem].Item;
 			itemIcon.sprite = item.Icon;
 			itemDescription.text = item.Description;
 		}
-		
+
 		HandleScrolling();
 	}
 
@@ -185,7 +208,7 @@ public class InventoryUI : MonoBehaviour
 	{
 		if (slotUIList.Count <= itemsInViewport)
 			return;
-		
+
 		float scrollPos = Mathf.Clamp(selectedItem - itemsInViewport / 2, 0, selectedItem) * slotUIList[0].Height;
 		itemListRect.localPosition = new Vector2(itemListRect.localPosition.x, scrollPos);
 
@@ -199,7 +222,7 @@ public class InventoryUI : MonoBehaviour
 	void ResetSelection()
 	{
 		selectedItem = 0;
-		
+
 		upArrow.gameObject.SetActive(false);
 		downArrow.gameObject.SetActive(false);
 

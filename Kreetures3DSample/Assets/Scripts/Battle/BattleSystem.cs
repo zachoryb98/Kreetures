@@ -629,16 +629,12 @@ public class BattleSystem : MonoBehaviour
 				playerUnit.Hud.gameObject.SetActive(true);
 			};
 
-
 			enemyUnit.Hud.gameObject.SetActive(false);
 			playerUnit.Hud.gameObject.SetActive(false);
 
-
-			Action onItemUsed = () =>
+			Action<ItemBase> onItemUsed = (ItemBase usedItem) =>
 			{
-				state = BattleState.Busy;
-				inventoryUI.gameObject.SetActive(false);
-				StartCoroutine(RunTurns(BattleAction.UseItem));
+				StartCoroutine(OnItemUsed(usedItem));
 			};
 
 			enemyUnit.Hud.gameObject.SetActive(true);
@@ -938,7 +934,20 @@ public class BattleSystem : MonoBehaviour
 		state = BattleState.RunningTurn;
 	}
 
-	IEnumerator ThrowCaptureDevice()
+	IEnumerator OnItemUsed(ItemBase usedItem)
+	{
+		state = BattleState.Busy;
+		inventoryUI.gameObject.SetActive(false);
+
+		if (usedItem is CaptureDeviceItem)
+		{
+			yield return ThrowCaptureDevice((CaptureDeviceItem)usedItem);
+		}
+
+		StartCoroutine(RunTurns(BattleAction.UseItem));
+	}
+
+	IEnumerator ThrowCaptureDevice(CaptureDeviceItem captureItem)
 	{
 		state = BattleState.Busy;
 
@@ -949,14 +958,15 @@ public class BattleSystem : MonoBehaviour
 			yield break;
 		}
 
-		yield return dialogBox.TypeDialog($"{player.name} tried to catch {wildKreeture.Base.name}");
+		yield return dialogBox.TypeDialog($"{player.name} used a {captureItem.Name}");
 
+		//TODO: This needs to be set up in the capture device object
 		var captureDeviceObj = Instantiate(captureDevice.transform, playerUnit.transform.position, Quaternion.identity);
 
 		//Animations
 		enemyUnit.PlayCaptureAnimation();
 
-		int shakeCount = TryToCatchKreeture(enemyUnit.Kreeture);
+		int shakeCount = TryToCatchKreeture(enemyUnit.Kreeture, captureItem);
 
 		//Jiggle Animation
 		for (int i = 0; i < Mathf.Min(shakeCount, 3); ++i)
@@ -993,9 +1003,9 @@ public class BattleSystem : MonoBehaviour
 		}
 	}
 
-	int TryToCatchKreeture(Kreeture kreeture)
+	int TryToCatchKreeture(Kreeture kreeture, CaptureDeviceItem captureDevice)
 	{
-		float a = (3 * kreeture.MaxHp - 2 * kreeture.HP) * kreeture.Base.CatchRate * ConditionsDB.GetStatusBonus(kreeture.Status) / (3 * kreeture.MaxHp);
+		float a = (3 * kreeture.MaxHp - 2 * kreeture.HP) * kreeture.Base.CatchRate * captureDevice.CatchRateModifier * ConditionsDB.GetStatusBonus(kreeture.Status) / (3 * kreeture.MaxHp);
 
 		if (a > 255)
 		{
