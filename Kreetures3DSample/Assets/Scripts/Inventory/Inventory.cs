@@ -28,14 +28,17 @@ public class Inventory : MonoBehaviour
 
     //Returns all slots
     public List<ItemSlot> GetSlotsByCategory(int categoryIndex) => allSlots[categoryIndex];
-    
 
-    public ItemBase UseItem(int itemIndex, Kreeture selectedKreeture, int selectedCategory)
-    {
-        var currentSlots = GetSlotsByCategory(selectedCategory);
+	public ItemBase GetItem(int itemIndex, int categoryIndex)
+	{
+		var currentSlots = GetSlotsByCategory(categoryIndex);
+		return currentSlots[itemIndex].Item;
+	}
 
-        var item = currentSlots[itemIndex].Item;
-        bool itemUsed = item.Use(selectedKreeture);
+	public ItemBase UseItem(int itemIndex, Kreeture selectedKreeture, int selectedCategory)
+    {        
+		var item = GetItem(itemIndex, selectedCategory);
+		bool itemUsed = item.Use(selectedKreeture);
         if (itemUsed)
         {
             RemoveItem(item, selectedCategory);

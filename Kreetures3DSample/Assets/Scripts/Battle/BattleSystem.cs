@@ -544,7 +544,7 @@ public class BattleSystem : MonoBehaviour
 				{
 					if (playerUnit.Kreeture.Attacks.Count < KreetureBase.MaxNumOfMoves)
 					{
-						playerUnit.Kreeture.LearnMove(newMove);
+						playerUnit.Kreeture.LearnMove(newMove.Base);
 						yield return dialogBox.TypeDialog($"{playerUnit.Kreeture.Base.Name} learned {newMove.Base.Name}");
 						dialogBox.SetMoveNames(playerUnit.Kreeture.Attacks);
 					}

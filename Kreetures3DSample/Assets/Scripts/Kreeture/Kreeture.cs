@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [System.Serializable]
@@ -182,12 +183,18 @@ public class Kreeture
 		return Base.LearnableAttacks.Where(x => x.Level == level).FirstOrDefault();
 	}
 
-	public void LearnMove(LearnableMove moveToLearn)
+
+	public void LearnMove(AttackBase moveToLearn)
 	{
 		if (Attacks.Count > KreetureBase.MaxNumOfMoves)
 			return;
 
-		Attacks.Add(new Attack(moveToLearn.Base));
+		Attacks.Add(new Attack(moveToLearn));
+	}
+
+	public bool HasMove(AttackBase moveToCheck)
+	{
+		return Attacks.Count(m => m.Base == moveToCheck) > 0;
 	}
 
 	public int Attack

@@ -1,11 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
-public enum InventoryUIState { ItemSelection, PartySelection, Busy }
+public enum InventoryUIState { ItemSelection, PartySelection, Busy, MoveToForget }
 
 public class InventoryUI : MonoBehaviour
 {
@@ -20,11 +23,14 @@ public class InventoryUI : MonoBehaviour
 	[SerializeField] Image downArrow;
 
 	[SerializeField] PartyScreen partyScreen;
+	public MoveSelectionUI moveSelectionUI;
 
-	Action<ItemBase> OnItemUsed;
+	Action<ItemBase> onItemUsed;
 
 	int selectedItem = 0;
 	int selectedCategory = 0;
+
+	AttackBase moveToLearn;
 
 	InventoryUIState state;
 
@@ -69,7 +75,7 @@ public class InventoryUI : MonoBehaviour
 
 	public void HandleUpdate(Action onBack, Action<ItemBase> onItemUsed = null)
 	{
-		StartCoroutine(DelayedHandleUpdate(onBack, onItemUsed));		
+		StartCoroutine(DelayedHandleUpdate(onBack, onItemUsed));
 	}
 
 	private IEnumerator DelayedHandleUpdate(Action onBack, Action<ItemBase> onItemUsed)
@@ -79,7 +85,7 @@ public class InventoryUI : MonoBehaviour
 
 		if (state == InventoryUIState.ItemSelection)
 		{
-			this.OnItemUsed = onItemUsed;
+			this.onItemUsed = onItemUsed;
 
 			int prevSelection = selectedItem;
 			int prevCategory = selectedCategory;
@@ -143,6 +149,15 @@ public class InventoryUI : MonoBehaviour
 
 			partyScreen.HandleUpdate(onSelected, onBackPartyScreen);
 		}
+		else if (state == InventoryUIState.MoveToForget)
+		{
+			Action<int> onMoveSelected = (int moveIndex) =>
+			{
+				StartCoroutine(OnMoveToForgetSelected(moveIndex));
+			};
+
+			moveSelectionUI.HandleMoveSelection(onMoveSelected);
+		}
 	}
 
 	void ItemSelected()
@@ -159,25 +174,56 @@ public class InventoryUI : MonoBehaviour
 
 	IEnumerator UseItem()
 	{
-		if(state != InventoryUIState.Busy)
+		state = InventoryUIState.Busy;
+
+		yield return HandleLearnableItems();
+
+		var usedItem = inventory.UseItem(selectedItem, partyScreen.SelectedMember, selectedCategory);
+		if (usedItem != null)
 		{
-			state = InventoryUIState.Busy;
+			if (usedItem is RecoveryItem)
+				yield return DialogManager.Instance.ShowDialogText($"The player used {usedItem.Name}");
 
-			var usedItem = inventory.UseItem(selectedItem, partyScreen.SelectedMember, selectedCategory);
-			if (usedItem != null)
-			{
-				if (!(usedItem is CaptureDeviceItem))
-					yield return DialogManager.Instance.ShowDialogText($"The player used {usedItem.Name}");
-
-				OnItemUsed?.Invoke(usedItem);
-			}
-			else
-			{
-				yield return DialogManager.Instance.ShowDialogText($"It won't have any affect!");
-			}
-
-			ClosePartyScreen();
+			onItemUsed?.Invoke(usedItem);
 		}
+		else
+		{
+			yield return DialogManager.Instance.ShowDialogText($"It won't have any affect!");
+		}
+
+		ClosePartyScreen();
+	}
+
+	IEnumerator HandleLearnableItems()
+	{
+		var learnableItem = inventory.GetItem(selectedItem, selectedCategory) as LearnableItem;
+		if (learnableItem == null)
+			yield break;
+
+		var kreeture = partyScreen.SelectedMember;
+		if (kreeture.Attacks.Count < KreetureBase.MaxNumOfMoves)
+		{
+			kreeture.LearnMove(learnableItem.Attack);
+			yield return DialogManager.Instance.ShowDialogText($"{kreeture.Base.Name} learned {learnableItem.Attack.Name}");
+		}
+		else
+		{
+			yield return DialogManager.Instance.ShowDialogText($"{kreeture.Base.Name} is trying to learn {learnableItem.Attack.Name}");
+			yield return DialogManager.Instance.ShowDialogText($"But it cannot learn more than {KreetureBase.MaxNumOfMoves} moves");
+			yield return ChooseMoveToForget(kreeture, learnableItem.Attack);
+			yield return new WaitUntil(() => state != InventoryUIState.MoveToForget);
+		}
+	}
+
+	IEnumerator ChooseMoveToForget(Kreeture kreeture, AttackBase newAttack)
+	{
+		state = InventoryUIState.Busy;
+		yield return DialogManager.Instance.ShowDialogText($"Choose a move you wan't to forget", true, false);
+		moveSelectionUI.gameObject.SetActive(true);
+		moveSelectionUI.SetMoveData(kreeture.Attacks.Select(x => x.Base).ToList(), newAttack);
+		moveToLearn = newAttack;		
+
+		state = InventoryUIState.MoveToForget;
 	}
 
 	void UpdateItemSelection()
@@ -240,5 +286,29 @@ public class InventoryUI : MonoBehaviour
 	{
 		state = InventoryUIState.ItemSelection;
 		partyScreen.gameObject.SetActive(false);
+	}
+
+	IEnumerator OnMoveToForgetSelected(int moveIndex)
+	{
+		var kreeture = partyScreen.SelectedMember;
+
+		DialogManager.Instance.CloseDialog();
+		moveSelectionUI.gameObject.SetActive(false);
+		if (moveIndex == KreetureBase.MaxNumOfMoves)
+		{
+			//Don't learn the new move
+			yield return DialogManager.Instance.ShowDialogText($"{kreeture.Base.Name} did not learn {moveToLearn.Name}");
+		}
+		else
+		{
+			//Forget the selected move and learn new move
+			var selectedMove = kreeture.Attacks[moveIndex].Base;
+			yield return DialogManager.Instance.ShowDialogText($"{kreeture.Base.Name} forgot {selectedMove.Name} and learned {moveToLearn.Name}");
+
+			kreeture.Attacks[moveIndex] = new Attack(moveToLearn);
+		}
+
+		moveToLearn = null;
+		state = InventoryUIState.ItemSelection;
 	}
 }
