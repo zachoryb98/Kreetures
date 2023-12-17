@@ -116,6 +116,7 @@
 -define:ENABLE_TIMELINE
 -define:ENABLE_INPUT_SYSTEM
 -define:ENABLE_LEGACY_INPUT_MANAGER
+-define:UNITY_POST_PROCESSING_STACK_V2
 -define:VISUAL_EFFECT_GRAPH_0_0_1_OR_NEWER
 -define:ENABLE_BURST_1_0_0_OR_NEWER
 -define:ENABLE_VR_MODULE
@@ -355,6 +356,47 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.RenderPipelines.Core.Runtime.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.UI.ref.dll"
+"Assets/FlatKit/[Render Pipeline] URP/EditorAttributes/Core/DrawerAttributes/AllowNestingAttribute.cs"
+"Assets/FlatKit/[Render Pipeline] URP/EditorAttributes/Core/DrawerAttributes/DrawerAttribute.cs"
+"Assets/FlatKit/[Render Pipeline] URP/EditorAttributes/Core/DrawerAttributes/Expandable.cs"
+"Assets/FlatKit/[Render Pipeline] URP/EditorAttributes/Core/DrawerAttributes/HorizontalLineAttribute.cs"
+"Assets/FlatKit/[Render Pipeline] URP/EditorAttributes/Core/DrawerAttributes/InfoBoxAttribute.cs"
+"Assets/FlatKit/[Render Pipeline] URP/EditorAttributes/Core/DrawerAttributes/MinMaxSliderAttribute.cs"
+"Assets/FlatKit/[Render Pipeline] URP/EditorAttributes/Core/DrawerAttributes/ReadOnlyAttribute.cs"
+"Assets/FlatKit/[Render Pipeline] URP/EditorAttributes/Core/DrawerAttributes/ShowAssetPreviewAttribute.cs"
+"Assets/FlatKit/[Render Pipeline] URP/EditorAttributes/Core/DrawerAttributes_SpecialCase/ButtonAttribute.cs"
+"Assets/FlatKit/[Render Pipeline] URP/EditorAttributes/Core/DrawerAttributes_SpecialCase/ShowNativePropertyAttribute.cs"
+"Assets/FlatKit/[Render Pipeline] URP/EditorAttributes/Core/DrawerAttributes_SpecialCase/ShowNonSerializedFieldAttribute.cs"
+"Assets/FlatKit/[Render Pipeline] URP/EditorAttributes/Core/DrawerAttributes_SpecialCase/SpecialCaseDrawerAttribute.cs"
+"Assets/FlatKit/[Render Pipeline] URP/EditorAttributes/Core/ICustomAttribute.cs"
+"Assets/FlatKit/[Render Pipeline] URP/EditorAttributes/Core/MetaAttributes/BoxGroupAttribute.cs"
+"Assets/FlatKit/[Render Pipeline] URP/EditorAttributes/Core/MetaAttributes/DisableIfAttribute.cs"
+"Assets/FlatKit/[Render Pipeline] URP/EditorAttributes/Core/MetaAttributes/EnableIfAttribute.cs"
+"Assets/FlatKit/[Render Pipeline] URP/EditorAttributes/Core/MetaAttributes/EnableIfAttributeBase.cs"
+"Assets/FlatKit/[Render Pipeline] URP/EditorAttributes/Core/MetaAttributes/FoldoutAttribute.cs"
+"Assets/FlatKit/[Render Pipeline] URP/EditorAttributes/Core/MetaAttributes/HideIfAttribute.cs"
+"Assets/FlatKit/[Render Pipeline] URP/EditorAttributes/Core/MetaAttributes/IGroupAttribute.cs"
+"Assets/FlatKit/[Render Pipeline] URP/EditorAttributes/Core/MetaAttributes/LabelAttribute.cs"
+"Assets/FlatKit/[Render Pipeline] URP/EditorAttributes/Core/MetaAttributes/MetaAttribute.cs"
+"Assets/FlatKit/[Render Pipeline] URP/EditorAttributes/Core/MetaAttributes/OnValueChangedAttribute.cs"
+"Assets/FlatKit/[Render Pipeline] URP/EditorAttributes/Core/MetaAttributes/ShowIfAttribute.cs"
+"Assets/FlatKit/[Render Pipeline] URP/EditorAttributes/Core/MetaAttributes/ShowIfAttributeBase.cs"
+"Assets/FlatKit/[Render Pipeline] URP/EditorAttributes/Core/Utility/EColor.cs"
+"Assets/FlatKit/[Render Pipeline] URP/EditorAttributes/Core/Utility/EConditionOperator.cs"
+"Assets/FlatKit/[Render Pipeline] URP/EditorAttributes/Core/ValidatorAttributes/MaxValueAttribute.cs"
+"Assets/FlatKit/[Render Pipeline] URP/EditorAttributes/Core/ValidatorAttributes/MinValueAttribute.cs"
+"Assets/FlatKit/[Render Pipeline] URP/EditorAttributes/Core/ValidatorAttributes/RequiredAttribute.cs"
+"Assets/FlatKit/[Render Pipeline] URP/EditorAttributes/Core/ValidatorAttributes/ValidateInputAttribute.cs"
+"Assets/FlatKit/[Render Pipeline] URP/EditorAttributes/Core/ValidatorAttributes/ValidatorAttribute.cs"
+"Assets/FlatKit/[Render Pipeline] URP/RenderFeatures/Common/AlwaysIncludedShaders.cs"
+"Assets/FlatKit/[Render Pipeline] URP/RenderFeatures/Common/BlitTexturePass.cs"
+"Assets/FlatKit/[Render Pipeline] URP/RenderFeatures/Common/ScreenRenderPass.cs"
+"Assets/FlatKit/[Render Pipeline] URP/RenderFeatures/Fog/FlatKitFog.cs"
+"Assets/FlatKit/[Render Pipeline] URP/RenderFeatures/Fog/FogSettings.cs"
+"Assets/FlatKit/[Render Pipeline] URP/RenderFeatures/Outline/FlatKitOutline.cs"
+"Assets/FlatKit/[Render Pipeline] URP/RenderFeatures/Outline/OutlineSettings.cs"
+"Assets/FlatKit/[Render Pipeline] URP/RenderFeatures/Pixelation/FlatKitPixelation.cs"
+"Assets/FlatKit/[Render Pipeline] URP/RenderFeatures/Pixelation/PixelationSettings.cs"
 "Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Runtime/2D/CinemachineUniversalPixelPerfect.cs"
 "Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Runtime/2D/Clipper.cs"
 "Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Runtime/2D/Light2D.cs"
@@ -528,6 +570,6 @@
 /nowarn:1702
 /utf8output
 /preferreduilang:en-US
--warn:0
+
 
 /additionalfile:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.RenderPipelines.Universal.Runtime.AdditionalFile.txt"

@@ -116,6 +116,7 @@
 -define:ENABLE_TIMELINE
 -define:ENABLE_INPUT_SYSTEM
 -define:ENABLE_LEGACY_INPUT_MANAGER
+-define:UNITY_POST_PROCESSING_STACK_V2
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
 -r:"Assets/Plugins/Demigiant/DOTween/DOTween.dll"
@@ -351,8 +352,8 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Assembly-CSharp.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Cinemachine.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/com.unity.cinemachine.editor.ref.dll"
--r:"Library/Bee/artifacts/1900b0aEDbg.dag/ExternalAttributes.Core.ref.dll"
--r:"Library/Bee/artifacts/1900b0aEDbg.dag/ExternalAttributes.Editor.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aEDbg.dag/ExternAttributes.Editor.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aEDbg.dag/FlatKit.Utils.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/PPv2URPConverters.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.2D.Sprite.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.Burst.Editor.ref.dll"
@@ -363,6 +364,8 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.Mathematics.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.Performance.Profile-Analyzer.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.PlasticSCM.Editor.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.Postprocessing.Editor.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.Postprocessing.Runtime.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.RenderPipeline.Universal.ShaderLibrary.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.RenderPipelines.Core.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.RenderPipelines.Core.Runtime.ref.dll"
@@ -400,16 +403,13 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.TestRunner.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.UI.ref.dll"
-"Assets/Quibli/Post Process/Editor/QSettingsEditor.cs"
-"Assets/Quibli/Scripts/Editor/CustomDrawersShaderEditor.cs"
-"Assets/Quibli/Scripts/Editor/MaterialGradientDrawer.cs"
-"Assets/Quibli/Scripts/Editor/MaterialMinMaxDrawer.cs"
-"Assets/Quibli/Scripts/Editor/MaterialVector2Drawer.cs"
-"Assets/Quibli/Scripts/Editor/QuibliEditor.cs"
-"Assets/Quibli/Scripts/Editor/Tooltips.cs"
-"Assets/Quibli/Utils/Readme/Editor/NetworkManager.cs"
-"Assets/Quibli/Utils/Readme/Editor/Readme.cs"
-"Assets/Quibli/Utils/Readme/Editor/ReadmeEditor.cs"
+"Assets/FlatKit/Demos/Common/Scripts/Motion/Editor/LinearMotionEditor.cs"
+"Assets/FlatKit/Shaders/Editor/StylizedSurfaceEditor.cs"
+"Assets/FlatKit/Shaders/Editor/TerrainEditor.cs"
+"Assets/FlatKit/Shaders/Editor/Tooltips.cs"
+"Assets/FlatKit/Shaders/GradientSkybox/Editor/GradientSkyboxEditor.cs"
+"Assets/FlatKit/[Render Pipeline] URP/Water/Editor/Tooltips.cs"
+"Assets/FlatKit/[Render Pipeline] URP/Water/Editor/WaterEditor.cs"
 -langversion:9.0
 
 /deterministic
