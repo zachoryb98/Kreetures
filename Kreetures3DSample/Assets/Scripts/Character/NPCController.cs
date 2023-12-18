@@ -9,10 +9,11 @@ public class NPCController : MonoBehaviour, Interactable
     [SerializeField] float timeBetweenPattern;
     NPCState state;
 
-    public void Interact()
+    public IEnumerator Interact()
     {
-        StartCoroutine(DialogManager.Instance.ShowDialog(dialog));
-        GameManager.Instance.state = GameState.Dialog;
+        yield return DialogManager.Instance.ShowDialog(dialog);                
+
+        state = NPCState.Idle;
     }
 
     private PlayerInput playerControls;

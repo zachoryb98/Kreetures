@@ -92,12 +92,10 @@ public class TrainerController : MonoBehaviour, Interactable, ISavable
 
             //By default this is true, only set to false if player triggers interaction
             moveToPlayer = true;
-            
+
             //GameManager.Instance.SetEnter
-            StartCoroutine(DialogManager.Instance.ShowDialog(dialog, () =>
-            {
-                          
-            }));
+            yield return DialogManager.Instance.ShowDialog(dialog);
+            
         }        
     }
 
@@ -112,7 +110,7 @@ public class TrainerController : MonoBehaviour, Interactable, ISavable
         }
     }
 
-    public void Interact()
+    public IEnumerator Interact()
     {
         GameManager.Instance.state = GameState.Dialog;
 		if (!HasTrainerLost)
@@ -130,10 +128,7 @@ public class TrainerController : MonoBehaviour, Interactable, ISavable
 		{
             LookAtPlayer();
             //GameManager.Instance.SetEnter
-            StartCoroutine(DialogManager.Instance.ShowDialog(dialogAfterBattle, () =>
-            {
-
-            }));
+            yield return DialogManager.Instance.ShowDialog(dialogAfterBattle);            
         }
     }
 

@@ -9,13 +9,10 @@ public class CaptureDeviceItem : ItemBase
 
 	public override bool Use(Kreeture kreeture)
 	{
-		if(GameManager.Instance.state == GameState.Battle)
-		{
-			return true;
-		}
-
-		return false;
+		return true;
 	}
+
+	public override bool CanUseOutsideBattle => false;
 
 	public float CatchRateModifier => catchRateModifier;
 }

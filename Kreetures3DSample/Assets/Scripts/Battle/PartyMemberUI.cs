@@ -9,8 +9,9 @@ public class PartyMemberUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI nameText;
     [SerializeField] TextMeshProUGUI levelText;
     [SerializeField] HPBar hpBar;
+	[SerializeField] TextMeshProUGUI messageText;
 
-    Kreeture _kreeture;
+	Kreeture _kreeture;
 
     /// <summary>
     /// Initializer Method
@@ -20,9 +21,10 @@ public class PartyMemberUI : MonoBehaviour
     {
         _kreeture = kreeture;
         UpdateData();
+		SetMessage("");
 
-        //Observer pattern to update health
-        _kreeture.OnHPChanged += UpdateData;
+		//Observer pattern to update health
+		_kreeture.OnHPChanged += UpdateData;
     }
 
     /// <summary>
@@ -49,4 +51,9 @@ public class PartyMemberUI : MonoBehaviour
                 nameText.color = Color.white;
         }        
     }
+
+	public void SetMessage(string message)
+	{
+		messageText.text = message;
+	}
 }

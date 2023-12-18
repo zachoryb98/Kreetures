@@ -36,19 +36,21 @@ public class Inventory : MonoBehaviour
 	}
 
 	public ItemBase UseItem(int itemIndex, Kreeture selectedKreeture, int selectedCategory)
-    {        
+	{
 		var item = GetItem(itemIndex, selectedCategory);
 		bool itemUsed = item.Use(selectedKreeture);
-        if (itemUsed)
-        {
-            RemoveItem(item, selectedCategory);
-            return item;
-        }
+		if (itemUsed)
+		{
+			if (!item.IsReusable)
+				RemoveItem(item, selectedCategory);
 
-        return null;
-    }
+			return item;
+		}
 
-    public void RemoveItem(ItemBase item, int category)
+		return null;
+	}
+
+	public void RemoveItem(ItemBase item, int category)
     {
         var currentSlots = GetSlotsByCategory(category);
 

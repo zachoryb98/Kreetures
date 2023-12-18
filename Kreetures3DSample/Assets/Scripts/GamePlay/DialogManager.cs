@@ -33,12 +33,6 @@ public class DialogManager : MonoBehaviour
 		UIControls = new PlayerInput();
 	}
 
-	Dialog dialog;
-	Action onDialogFinished;
-
-	int currentLine = 0;
-	bool isTyping;
-
 	public bool IsShowing { get; private set; }
 
 	public IEnumerator ShowDialogText(string text, bool waitForInput = true, bool autoClose = true)
@@ -64,55 +58,39 @@ public class DialogManager : MonoBehaviour
 		IsShowing = false;
 	}
 
-	public IEnumerator ShowDialog(Dialog dialog, Action onFinished = null)
+	public IEnumerator ShowDialog(Dialog dialog)
 	{
 		yield return new WaitForEndOfFrame();
 		
 		OnShowDialog?.Invoke();
 
 		IsShowing = true;
-		this.dialog = dialog;
-		onDialogFinished = onFinished;
 
 		dialogBox.SetActive(true);
-		StartCoroutine(TypeDialog(dialog.Lines[0]));
 
-	}
-	private void Update()
-	{
-		if (GameManager.Instance.state == GameState.Dialog)
+		foreach (var line in dialog.Lines)
 		{
-			if (GameManager.Instance.playerController.GetContinueDialog() && !isTyping)
-			{
-				++currentLine;
-				if (currentLine < dialog.Lines.Count)
-				{
-					StartCoroutine(TypeDialog(dialog.Lines[currentLine]));
-				}
-				else
-				{
-					currentLine = 0;
-					dialogBox.SetActive(false);
-					UIControls.OverWorldUI.Disable();
-					UIControls.PlayerControls.Enable();
-					OnCloseDialog?.Invoke();
-					GameManager.Instance.state = GameState.FreeRoam;
-				}
-			}
+			yield return TypeDialog(line);
+			yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
 		}
+
+        dialogBox.SetActive(false);
+		IsShowing = false;
+				
+		UIControls.OverWorldUI.Disable();
+		UIControls.BattleUI.Disable();
+		UIControls.PlayerControls.Enable();
+		OnCloseDialog?.Invoke();		
 	}
 
 	public IEnumerator TypeDialog(string line)
 	{
-		isTyping = true;
 		dialogText.text = "";
 		foreach (var letter in line.ToCharArray())
 		{
 			dialogText.text += letter;
 			yield return new WaitForSeconds(1f / lettersPerSecond);
-		}
-		isTyping = false;
+		}		
 		GameManager.Instance.playerController.SetContinueDialog(false);		
-
 	}
 }

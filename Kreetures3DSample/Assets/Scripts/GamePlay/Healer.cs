@@ -1,3 +1,5 @@
+using Newtonsoft.Json.Linq;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -32,8 +34,9 @@ public class Healer : MonoBehaviour, Interactable
 
     }
 
-	public void Interact()
+	public IEnumerator Interact()
 	{
         HealParty();
+        yield return null;
 	}
 }

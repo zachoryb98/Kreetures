@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.InputSystem;
 using System;
+using static UnityEditor.Progress;
 
 public class PartyScreen : MonoBehaviour
 {
@@ -53,17 +54,6 @@ public class PartyScreen : MonoBehaviour
         messageText.text = "Choose a Kreeture";
     }
 
-    public void UpdateMemberSelection(int selectedMember)
-    {
-        for (int i = 0; i < kreetures.Count; i++)
-        {
-            if (i == selectedMember)
-                memberSlots[i].SetSelected(true);
-            else
-                memberSlots[i].SetSelected(false);
-        }
-    }
-
 	public void HandleUpdate(Action onSelected, Action onback)
 	{               
         inputActions.Enable();
@@ -99,16 +89,22 @@ public class PartyScreen : MonoBehaviour
 		else if (backAction.triggered)
 		{            
             selection = 0;
-            onback?.Invoke();
+			onback?.Invoke();
 		}
 	}
 
-	public void SetMessageText(string message)
-    {
-        messageText.text = message;
-    }
+	public void UpdateMemberSelection(int selectedMember)
+	{
+		for (int i = 0; i < kreetures.Count; i++)
+		{
+			if (i == selectedMember)
+				memberSlots[i].SetSelected(true);
+			else
+				memberSlots[i].SetSelected(false);
+		}
+	}
 
-    public IEnumerator ShowPartyScreen()
+	public IEnumerator ShowPartyScreen()
 	{
         this.gameObject.SetActive(true);
         yield return this.GetComponent<RectTransform>().DOAnchorPos(new Vector2(0, 0), .25f);
@@ -119,4 +115,26 @@ public class PartyScreen : MonoBehaviour
         yield return this.GetComponent<RectTransform>().DOAnchorPos(new Vector2(0, -100), .25f);
         this.gameObject.SetActive(false);
     }
+
+	public void ShowIfTmIsUsable(LearnableItem learnableItem)
+	{
+		for (int i = 0; i < kreetures.Count; i++)
+		{
+			string message = learnableItem.CanBeTaught(kreetures[i]) ? "ABLE!" : "NOT ABLE!";
+			memberSlots[i].SetMessage(message);
+		}
+	}
+
+	public void ClearMemberSlotMessages()
+	{
+		for (int i = 0; i < kreetures.Count; i++)
+		{
+			memberSlots[i].SetMessage("");
+		}
+	}
+
+	public void SetMessageText(string message)
+	{
+		messageText.text = message;
+	}
 }

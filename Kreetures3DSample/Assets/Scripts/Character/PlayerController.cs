@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour, ISavable
 
 			if (playerControls.PlayerControls.Interaction.triggered)
 			{
-				Interact();
+				StartCoroutine(Interact());
 			}
 		}
 		else if (GameManager.Instance.state == GameState.Dialog)
@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour, ISavable
 		}
 	}
 
-	void Interact()
+	IEnumerator Interact()
 	{
 		var facingDir = transform.forward;
 		var chestOffset = new Vector3(0f, 0.5f, 0f); // Adjust the Y value as needed
@@ -102,7 +102,7 @@ public class PlayerController : MonoBehaviour, ISavable
 			Interactable interactable = hit.collider.GetComponent<Interactable>();
 			if (interactable != null)
 			{
-				interactable.Interact();
+				yield return interactable.Interact();
 			}
 		}
 	}
@@ -135,6 +135,7 @@ public class PlayerController : MonoBehaviour, ISavable
 	public void EnablePlayerControls()
 	{
 		playerControls.PlayerControls.Enable();
+		playerControls.OverWorldUI.Disable();
 	}
 
 	public void SetPosition(Vector3 position)

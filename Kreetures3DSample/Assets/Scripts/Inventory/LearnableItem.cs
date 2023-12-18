@@ -7,6 +7,9 @@ using UnityEngine;
 public class LearnableItem : ItemBase
 {
 	[SerializeField] AttackBase attack;
+	[SerializeField] bool isHM;
+
+	public override string Name => base.Name + $": {attack.Name}";
 
 	public override bool Use(Kreeture kreeture)
 	{
@@ -14,5 +17,15 @@ public class LearnableItem : ItemBase
 		return kreeture.HasMove(attack);
 	}
 
+	public bool CanBeTaught(Kreeture kreeture)
+	{
+		return kreeture.Base.LearnableByItems.Contains(attack);
+	}
+
+	public override bool IsReusable => isHM;
+
+	public override bool CanUseInBattle => false;
+
 	public AttackBase Attack => attack;
+	public bool IsHM => isHM;
 }

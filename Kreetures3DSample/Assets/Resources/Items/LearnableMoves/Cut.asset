@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61aaac4706cf84946bbf8d906f68ed02, type: 3}
+  m_Name: Cut
+  m_EditorClassIdentifier: 
+  name: UA1
+  description: This teaches Cut to a kreeture
+  icon: {fileID: 21300000, guid: 2dd03bd4961504dc782c77e181c832cc, type: 3}
+  attack: {fileID: 11400000, guid: 6482e558a4ad162408f8ed00ab1a5ccf, type: 2}
+  isHM: 1

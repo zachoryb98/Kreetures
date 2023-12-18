@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -32,8 +33,10 @@ public class KreetureBase : ScriptableObject
     [SerializeField] int catchRate = 255;
 
     [SerializeField] List<LearnableMove> learnableMoves;
+	[SerializeField] List<AttackBase> learnableByItems;
 
-    public static int MaxNumOfMoves { get; set; } = 4;
+
+	public static int MaxNumOfMoves { get; set; } = 4;
 
     public int GetExpForLevel(int level)
 	{
@@ -107,9 +110,11 @@ public class KreetureBase : ScriptableObject
 
     public List<LearnableMove> LearnableAttacks {
         get { return learnableMoves; }
-    }
+	}
 
-    public int CatchRate => catchRate;
+	public List<AttackBase> LearnableByItems => learnableByItems;
+
+	public int CatchRate => catchRate;
 
     public int ExpYield => expYield;
 

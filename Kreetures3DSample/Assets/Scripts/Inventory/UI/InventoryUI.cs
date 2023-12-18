@@ -126,7 +126,7 @@ public class InventoryUI : MonoBehaviour
 
 			if (Input.GetKeyDown(KeyCode.Z))
 			{
-				ItemSelected();
+				StartCoroutine(ItemSelected());
 			}
 
 			else if (Input.GetKeyDown(KeyCode.X))
@@ -160,8 +160,33 @@ public class InventoryUI : MonoBehaviour
 		}
 	}
 
-	void ItemSelected()
+	IEnumerator ItemSelected()
 	{
+		state = InventoryUIState.Busy;
+
+		var item = inventory.GetItem(selectedItem, selectedCategory);
+
+		if (GameManager.Instance.state == GameState.Battle)
+		{
+			// In Battle
+			if (!item.CanUseInBattle)
+			{
+				yield return DialogManager.Instance.ShowDialogText($"This item cannot be used in battle");
+				state = InventoryUIState.ItemSelection;
+				yield break;
+			}
+		}
+		else
+		{
+			// Outside Battle
+			if (!item.CanUseOutsideBattle)
+			{
+				yield return DialogManager.Instance.ShowDialogText($"This item cannot be used outside battle");
+				state = InventoryUIState.ItemSelection;
+				yield break;
+			}
+		}
+
 		if (selectedCategory == (int)ItemCategory.CaptureDevices)
 		{
 			StartCoroutine(UseItem());
@@ -169,6 +194,9 @@ public class InventoryUI : MonoBehaviour
 		else
 		{
 			OpenPartyScreen();
+
+			if (item is LearnableItem)
+				partyScreen.ShowIfTmIsUsable(item as LearnableItem);
 		}
 	}
 
@@ -188,7 +216,8 @@ public class InventoryUI : MonoBehaviour
 		}
 		else
 		{
-			yield return DialogManager.Instance.ShowDialogText($"It won't have any affect!");
+			if (selectedCategory == (int)ItemCategory.Items)
+				yield return DialogManager.Instance.ShowDialogText($"It won't have any affect!");
 		}
 
 		ClosePartyScreen();
@@ -201,6 +230,19 @@ public class InventoryUI : MonoBehaviour
 			yield break;
 
 		var kreeture = partyScreen.SelectedMember;
+
+		if (kreeture.HasMove(learnableItem.Attack))
+		{
+			yield return DialogManager.Instance.ShowDialogText($"{kreeture.Base.Name} already know {learnableItem.Attack.Name}");
+			yield break;
+		}
+
+		if (!learnableItem.CanBeTaught(kreeture))
+		{
+			yield return DialogManager.Instance.ShowDialogText($"{kreeture.Base.Name} can't learn {learnableItem.Attack.Name}");
+			yield break;
+		}
+
 		if (kreeture.Attacks.Count < KreetureBase.MaxNumOfMoves)
 		{
 			kreeture.LearnMove(learnableItem.Attack);
@@ -285,6 +327,8 @@ public class InventoryUI : MonoBehaviour
 	void ClosePartyScreen()
 	{
 		state = InventoryUIState.ItemSelection;
+
+		partyScreen.ClearMemberSlotMessages();
 		partyScreen.gameObject.SetActive(false);
 	}
 
