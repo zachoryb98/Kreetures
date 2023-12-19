@@ -14,7 +14,8 @@ public class Pickup : MonoBehaviour, Interactable
         {
             if(item != null)
             {
-                GameManager.Instance.playerController.GetComponent<Inventory>().AddItem(item);
+                var player = GameManager.Instance.playerController;
+                player.GetComponent<Inventory>().AddItem(item);
 
                 Used = true;
 
@@ -26,7 +27,7 @@ public class Pickup : MonoBehaviour, Interactable
                     parentTransform.gameObject.SetActive(false);
                 }
 
-                yield return DialogManager.Instance.ShowDialogText($"Player found {item.name}");
+                yield return DialogManager.Instance.ShowDialogText($"{player.name} found {item.name}");
             }            
         }
     }

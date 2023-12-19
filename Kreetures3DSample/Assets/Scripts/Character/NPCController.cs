@@ -11,7 +11,14 @@ public class NPCController : MonoBehaviour, Interactable
 
     public IEnumerator Interact()
     {
-        yield return DialogManager.Instance.ShowDialog(dialog);                
+        if(itemGiver != null && itemGiver.CanBeGiven())
+        {
+            yield return itemGiver.GiveItem(GameManager.Instance.playerController);
+        }
+        else
+        {
+            yield return DialogManager.Instance.ShowDialog(dialog);
+        }        
 
         state = NPCState.Idle;
     }
@@ -19,9 +26,12 @@ public class NPCController : MonoBehaviour, Interactable
     private PlayerInput playerControls;
     private bool playerInRange = false;
 
+    ItemGiver itemGiver;
+
     private void Awake()
     {
         playerControls = new PlayerInput();
+        itemGiver = GetComponent<ItemGiver>();
     }
 
     private void OnEnable()
