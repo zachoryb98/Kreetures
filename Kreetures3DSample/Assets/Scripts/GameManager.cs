@@ -35,7 +35,9 @@ public class GameManager : MonoBehaviour
 	private Quaternion playerRotation = new Quaternion();
 
 	public GameState state;
-	List<SavableEntity> savableEntities;
+    public GameState prevState;
+
+    List<SavableEntity> savableEntities;
 
 	private void Awake()
 	{
@@ -126,6 +128,7 @@ public class GameManager : MonoBehaviour
 	{
 		DialogManager.Instance.OnShowDialog += () =>
 		{
+			prevState = state;
 			state = GameState.Dialog;
 			playerController.DisablePlayerControls();
 			playerController.EnableUIControls();
@@ -134,7 +137,7 @@ public class GameManager : MonoBehaviour
 		DialogManager.Instance.OnCloseDialog += () =>
 		{
 			if (state == GameState.Dialog)
-				state = GameState.FreeRoam;
+				state = prevState;
 			playerController.EnablePlayerControls();
 			playerController.DisableUIControls();
 			if (enterTrainerBattle)

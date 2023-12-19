@@ -126,7 +126,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 143
+  controlID: 133
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 144
+  controlID: 134
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -308,23 +308,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 98a0ffffd8fafffff4ffffff76760000ac770000d8780000fa7a0000
+      m_SelectedIDs: 32790000
+      m_LastClickedID: 31026
+      m_ExpandedIDs: 50f1ffffd8fafffff4ffffffd8780000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: Trigger
+        m_OriginalName: Trigger
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -11382
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 2}
       m_SearchString: 
@@ -416,22 +416,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scripts
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets
+  - Assets/Scripts
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\zbehr\OneDrive\Desktop\Kreetures\Kreetures3DSample
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: be840000
-    m_LastClickedID: 33982
-    m_ExpandedIDs: 00000000be840000c0840000c2840000c4840000c6840000b086000000ca9a3b
+    m_SelectedIDs: c0840000
+    m_LastClickedID: 33984
+    m_ExpandedIDs: 00000000be840000c0840000c2840000c4840000c684000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -865,9 +865,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 7, y: 1.6377864, z: 7.51572}
+    m_Target: {x: 0.44318816, y: 1.5495658, z: 13.518183}
     speed: 2
-    m_Value: {x: 7, y: 1.6377864, z: 7.51572}
+    m_Value: {x: 0.44318816, y: 1.5495658, z: 13.518183}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -914,13 +914,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.057253707, y: -0.029951584, z: 0.0017157203, w: 0.9979362}
+    m_Target: {x: 0.18806837, y: 0.21175279, z: -0.04155428, w: 0.9581889}
     speed: 2
-    m_Value: {x: 0.057252143, y: -0.029950766, z: 0.0017156735, w: 0.99790895}
+    m_Value: {x: 0.1880626, y: 0.21174628, z: -0.041553, w: 0.95815945}
   m_Size:
-    m_Target: 2.752676
+    m_Target: 1.3159473
     speed: 2
-    m_Value: 2.752676
+    m_Value: 1.3159473
   m_Ortho:
     m_Target: 0
     speed: 2

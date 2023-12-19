@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 public class Healer : MonoBehaviour, Interactable
-{
-    private PlayerInput playerControls;
+{    
 
     private void HealParty()
     {
