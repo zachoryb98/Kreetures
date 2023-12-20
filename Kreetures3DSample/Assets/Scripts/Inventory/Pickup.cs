@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pickup : MonoBehaviour, Interactable
+public class Pickup : MonoBehaviour, Interactable, ISavable
 {
     [SerializeField] ItemBase item;
 
@@ -24,11 +24,29 @@ public class Pickup : MonoBehaviour, Interactable
                 if (parentTransform != null)
                 {
                     // Disable the parent object
-                    parentTransform.gameObject.SetActive(false);
+                    parentTransform.GetComponent<MeshRenderer>().enabled = false;
+                    parentTransform.GetComponent<SphereCollider>().enabled = false;
+                    this.gameObject.GetComponent<BoxCollider>().enabled = false;
                 }
 
                 yield return DialogManager.Instance.ShowDialogText($"{player.name} found {item.name}");
             }            
+        }
+    }
+
+    public object CaptureState()
+    {
+        return Used;
+    }
+
+
+    public void RestoreState(object state)
+    {
+        Used = (bool)state;
+
+        if (Used)
+        {
+            transform.parent.gameObject.SetActive(false);
         }
     }
 }

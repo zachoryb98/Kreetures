@@ -15,7 +15,7 @@ public class DialogManager : MonoBehaviour
 	[SerializeField] int lettersPerSecond;
 
 	public event Action OnShowDialog;
-	public event Action OnCloseDialog;
+	public event Action OnDialogFinished;
 
 	public static DialogManager Instance { get; private set; }
 	private void Awake()
@@ -51,13 +51,13 @@ public class DialogManager : MonoBehaviour
 		{
 			CloseDialog();
 		}
-	}
+        OnDialogFinished?.Invoke();
+    }
 
 	public void CloseDialog()
 	{
 		dialogBox.SetActive(false);
-		IsShowing = false;
-		OnCloseDialog?.Invoke();
+		IsShowing = false;	
 	}
 
 	public IEnumerator ShowDialog(Dialog dialog)
@@ -82,7 +82,7 @@ public class DialogManager : MonoBehaviour
 		UIControls.OverWorldUI.Disable();
 		UIControls.BattleUI.Disable();
 		UIControls.PlayerControls.Enable();
-		OnCloseDialog?.Invoke();		
+		OnDialogFinished?.Invoke();		
 	}
 
 	public IEnumerator TypeDialog(string line)

@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
 			ConditionsDB.Init();
 			AttackDB.Init();
 			partyScreen.Init();
+			ItemDB.Init();
 
 			menuController = FindObjectOfType<MenuController>();
 
@@ -134,7 +135,7 @@ public class GameManager : MonoBehaviour
 			playerController.EnableUIControls();
 		};
 
-		DialogManager.Instance.OnCloseDialog += () =>
+		DialogManager.Instance.OnDialogFinished += () =>
 		{
 			if (state == GameState.Dialog)
 				state = prevState;

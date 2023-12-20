@@ -415,6 +415,7 @@
 "Assets/Scripts/Character/TrainerController.cs"
 "Assets/Scripts/Data/AttackDB.cs"
 "Assets/Scripts/Data/ConditionsDB.cs"
+"Assets/Scripts/Data/ItemDB.cs"
 "Assets/Scripts/Data/KreetureDB.cs"
 "Assets/Scripts/GameController.cs"
 "Assets/Scripts/GameManager.cs"
