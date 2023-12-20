@@ -427,6 +427,7 @@
 "Assets/Scripts/GamePlay/Interactable.cs"
 "Assets/Scripts/GamePlay/MapArea.cs"
 "Assets/Scripts/GamePlay/PersistentObjectManager.cs"
+"Assets/Scripts/GamePlay/StoryItem.cs"
 "Assets/Scripts/GamePlay/TrainerEncounterManager.cs"
 "Assets/Scripts/Inventory/CaptureDeviceItem.cs"
 "Assets/Scripts/Inventory/Inventory.cs"
