@@ -1489,6 +1489,7 @@ GameObject:
   - component: {fileID: 5004086380210746218}
   - component: {fileID: 4396320785116094550}
   - component: {fileID: 206042535358848723}
+  - component: {fileID: 2778138946768404085}
   m_Layer: 0
   m_Name: Player (1)
   m_TagString: Player
@@ -1649,8 +1650,6 @@ MonoBehaviour:
     count: 2
   - item: {fileID: 11400000, guid: c5220ca98d3665846b592f172308b283, type: 2}
     count: 2
-  - item: {fileID: 11400000, guid: fd5e2b3a222e87c4483714794df92451, type: 2}
-    count: 2
   captureDeviceSlots:
   - item: {fileID: 11400000, guid: f90be6ba07e31e04c8b9caa166577cf3, type: 2}
     count: 5
@@ -1663,6 +1662,19 @@ MonoBehaviour:
     count: 2
   - item: {fileID: 11400000, guid: 0a7f43bc1d9691846a6f20b91393d944, type: 2}
     count: 1
+--- !u!114 &2778138946768404085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6284765634878804417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee6c5f81489bf543a78ac3256d3c0a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quests: []
 --- !u!1 &6384640778057468217
 GameObject:
   m_ObjectHideFlags: 0

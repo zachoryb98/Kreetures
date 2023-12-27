@@ -447,6 +447,8 @@
 "Assets/Scripts/Kreeture/KreetureParty.cs"
 "Assets/Scripts/Quest/Quest.cs"
 "Assets/Scripts/Quest/QuestBase.cs"
+"Assets/Scripts/Quest/QuestList.cs"
+"Assets/Scripts/Quest/QuestObject.cs"
 "Assets/Scripts/Saving/ISavable.cs"
 "Assets/Scripts/Saving/SavableEntity.cs"
 "Assets/Scripts/Saving/SavingSystem.cs"
