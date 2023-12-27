@@ -6,7 +6,7 @@ public class TrainerController : MonoBehaviour, Interactable, ISavable
 {
     public string trainerID;
     public Transform trainerSpawnPosition;
-    [SerializeField] string name;
+    [SerializeField] string trainerName;
     public float stoppingDistance = 2f;
     public float moveSpeed = 3f;
     private NavMeshAgent navMeshAgent;
@@ -147,9 +147,9 @@ public class TrainerController : MonoBehaviour, Interactable, ISavable
         }
 	}
 
-	public string Name
+	public string TrainerName
     {
-        get => name;
+        get => trainerName;
     }
     //public Sprite Sprite
     //{

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61aaac4706cf84946bbf8d906f68ed02, type: 3}
   m_Name: LA1
   m_EditorClassIdentifier: 
-  name: LA1
+  itemName: 'LA1: Confuse Ray'
   description: This teaches your kreeture Confuse Ray
   icon: {fileID: 21300000, guid: 9069d00d887b3493786ad0c2f526ca78, type: 3}
   attack: {fileID: 11400000, guid: 6bbedb9f3b91e88408addd03d1eed7b9, type: 2}
+  isHM: 0

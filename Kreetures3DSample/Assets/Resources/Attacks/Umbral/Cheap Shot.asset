@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f9b5d4793618442a7254e71ac9ba2f, type: 3}
   m_Name: Cheap Shot
   m_EditorClassIdentifier: 
-  name: Cheap Shot
+  attackName: Cheap Shot
   description: 
   type: 16
   power: 40
@@ -27,3 +27,4 @@ MonoBehaviour:
     volatileStatus: 0
   secondaries: []
   target: 0
+  requiresMovement: 0

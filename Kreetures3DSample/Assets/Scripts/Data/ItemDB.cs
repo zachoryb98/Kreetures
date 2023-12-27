@@ -13,13 +13,13 @@ public class ItemDB
         var itemList = Resources.LoadAll<ItemBase>("");
         foreach (var item in itemList)
         {
-            if (items.ContainsKey(item.Name))
+            if (items.ContainsKey(item.ItemName))
             {
-                Debug.LogError($"There are two items with the name {item.Name}");
+                Debug.LogError($"There are two items with the name {item.ItemName}");
                 continue;
             }
 
-            items[item.Name] = item;
+            items[item.ItemName] = item;
         }
     }
 

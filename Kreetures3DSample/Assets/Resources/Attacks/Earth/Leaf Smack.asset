@@ -12,13 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f9b5d4793618442a7254e71ac9ba2f, type: 3}
   m_Name: Leaf Smack
   m_EditorClassIdentifier: 
-  name: Leaf Smack
+  attackName: Leaf Smack
   description: 
   type: 5
   power: 45
   accuracy: 100
+  alwaysHits: 0
   pp: 20
+  priority: 0
   category: 1
   effects:
     boosts: []
+    status: 0
+    volatileStatus: 0
+  secondaries: []
   target: 0
+  requiresMovement: 0

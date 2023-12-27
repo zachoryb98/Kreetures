@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94df9adb2c93c164290fddd8ac920c4d, type: 3}
   m_Name: StrongCaptureDevice
   m_EditorClassIdentifier: 
-  name: Strong Capture Device
+  itemName: Strong Capture Device
   description: A stronger capture device that has a greater chance of taming a Kreeture
   icon: {fileID: 21300000, guid: d60cb6394a5c44d858b455ce9bc47d30, type: 3}
   catchRateModifier: 1.5

@@ -210,7 +210,7 @@ public class InventoryUI : MonoBehaviour
 		if (usedItem != null)
 		{
 			if (usedItem is RecoveryItem)
-				yield return DialogManager.Instance.ShowDialogText($"The player used {usedItem.Name}");
+				yield return DialogManager.Instance.ShowDialogText($"The player used {usedItem.ItemName}");
 
 			onItemUsed?.Invoke(usedItem);
 		}
@@ -233,24 +233,24 @@ public class InventoryUI : MonoBehaviour
 
 		if (kreeture.HasMove(learnableItem.Attack))
 		{
-			yield return DialogManager.Instance.ShowDialogText($"{kreeture.Base.Name} already know {learnableItem.Attack.Name}");
+			yield return DialogManager.Instance.ShowDialogText($"{kreeture.Base.Name} already know {learnableItem.Attack.AttackName}");
 			yield break;
 		}
 
 		if (!learnableItem.CanBeTaught(kreeture))
 		{
-			yield return DialogManager.Instance.ShowDialogText($"{kreeture.Base.Name} can't learn {learnableItem.Attack.Name}");
+			yield return DialogManager.Instance.ShowDialogText($"{kreeture.Base.Name} can't learn {learnableItem.Attack.AttackName}");
 			yield break;
 		}
 
 		if (kreeture.Attacks.Count < KreetureBase.MaxNumOfMoves)
 		{
 			kreeture.LearnMove(learnableItem.Attack);
-			yield return DialogManager.Instance.ShowDialogText($"{kreeture.Base.Name} learned {learnableItem.Attack.Name}");
+			yield return DialogManager.Instance.ShowDialogText($"{kreeture.Base.Name} learned {learnableItem.Attack.AttackName}");
 		}
 		else
 		{
-			yield return DialogManager.Instance.ShowDialogText($"{kreeture.Base.Name} is trying to learn {learnableItem.Attack.Name}");
+			yield return DialogManager.Instance.ShowDialogText($"{kreeture.Base.Name} is trying to learn {learnableItem.Attack.AttackName}");
 			yield return DialogManager.Instance.ShowDialogText($"But it cannot learn more than {KreetureBase.MaxNumOfMoves} moves");
 			yield return ChooseMoveToForget(kreeture, learnableItem.Attack);
 			yield return new WaitUntil(() => state != InventoryUIState.MoveToForget);
@@ -341,13 +341,13 @@ public class InventoryUI : MonoBehaviour
 		if (moveIndex == KreetureBase.MaxNumOfMoves)
 		{
 			//Don't learn the new move
-			yield return DialogManager.Instance.ShowDialogText($"{kreeture.Base.Name} did not learn {moveToLearn.Name}");
+			yield return DialogManager.Instance.ShowDialogText($"{kreeture.Base.Name} did not learn {moveToLearn.AttackName}");
 		}
 		else
 		{
 			//Forget the selected move and learn new move
 			var selectedMove = kreeture.Attacks[moveIndex].Base;
-			yield return DialogManager.Instance.ShowDialogText($"{kreeture.Base.Name} forgot {selectedMove.Name} and learned {moveToLearn.Name}");
+			yield return DialogManager.Instance.ShowDialogText($"{kreeture.Base.Name} forgot {selectedMove.AttackName} and learned {moveToLearn.AttackName}");
 
 			kreeture.Attacks[moveIndex] = new Attack(moveToLearn);
 		}

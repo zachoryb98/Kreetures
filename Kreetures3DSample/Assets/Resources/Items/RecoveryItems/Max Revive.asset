@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5881f3996e6164438b3db952ed0a66b, type: 3}
   m_Name: Max Revive
   m_EditorClassIdentifier: 
-  name: Max revive
+  itemName: Max Revive
   description: Revives fainted monster and heals them fully
   icon: {fileID: 33803261, guid: 337737d393d90b54cbfdd9eb7a99f331, type: 3}
   hpAmount: 0

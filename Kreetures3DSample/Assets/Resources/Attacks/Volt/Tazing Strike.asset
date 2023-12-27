@@ -12,15 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f9b5d4793618442a7254e71ac9ba2f, type: 3}
   m_Name: Tazing Strike
   m_EditorClassIdentifier: 
-  name: Tazing Strike
+  attackName: Tazing Strike
   description: 
   type: 4
   power: 30
   accuracy: 80
+  alwaysHits: 0
   pp: 15
+  priority: 0
   category: 2
   effects:
     boosts: []
     status: 4
     volatileStatus: 0
+  secondaries: []
   target: 0
+  requiresMovement: 0

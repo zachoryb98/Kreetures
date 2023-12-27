@@ -104,14 +104,14 @@ public class BattleSystem : MonoBehaviour
 			//playerImage.sprite = player.Sprite;
 			//trainerImage.sprite = trainer.Sprite;
 
-			yield return dialogBox.TypeDialog($"{trainer.Name} wants to battle");
+			yield return dialogBox.TypeDialog($"{trainer.TrainerName} wants to battle");
 
 			// Send out first Kreeture of the trainer
 			//trainerImage.gameObject.SetActive(false);
 			enemyUnit.gameObject.SetActive(true);
 			var enemyKreeture = trainerParty.GetHealthyKreeture();
 			enemyUnit.Setup(enemyKreeture);
-			yield return dialogBox.TypeDialog($"{trainer.Name} send out {enemyKreeture.Base.Name}");
+			yield return dialogBox.TypeDialog($"{trainer.TrainerName} send out {enemyKreeture.Base.Name}");
 
 			// Send out first Kreeture of the player
 			//playerImage.gameObject.SetActive(false);
@@ -188,7 +188,7 @@ public class BattleSystem : MonoBehaviour
 	IEnumerator AboutToUse(Kreeture newKreeture)
 	{
 		state = BattleState.Busy;
-		yield return dialogBox.TypeDialog($"{trainer.Name} is about to use {newKreeture.Base.Name}. Do you want to change kreetures?");
+		yield return dialogBox.TypeDialog($"{trainer.TrainerName} is about to use {newKreeture.Base.Name}. Do you want to change kreetures?");
 
 		state = BattleState.AboutToUse;
 		dialogBox.EnableChoiceBox(true);
@@ -283,7 +283,7 @@ public class BattleSystem : MonoBehaviour
 		yield return ShowStatusChanges(sourceUnit.Kreeture);
 
 		attack.PP--;
-		yield return dialogBox.TypeDialog($"{sourceUnit.Kreeture.Base.Name} used {attack.Base.Name}");
+		yield return dialogBox.TypeDialog($"{sourceUnit.Kreeture.Base.Name} used {attack.Base.AttackName}");
 
 		Vector3 originalPosition = sourceUnit.KreetureGameObject.transform.position;
 
@@ -545,12 +545,12 @@ public class BattleSystem : MonoBehaviour
 					if (playerUnit.Kreeture.Attacks.Count < KreetureBase.MaxNumOfMoves)
 					{
 						playerUnit.Kreeture.LearnMove(newMove.Base);
-						yield return dialogBox.TypeDialog($"{playerUnit.Kreeture.Base.Name} learned {newMove.Base.Name}");
+						yield return dialogBox.TypeDialog($"{playerUnit.Kreeture.Base.Name} learned {newMove.Base.AttackName}");
 						dialogBox.SetMoveNames(playerUnit.Kreeture.Attacks);
 					}
 					else
 					{
-						yield return dialogBox.TypeDialog($"{playerUnit.Kreeture.Base.Name} trying to learn {newMove.Base.Name}");
+						yield return dialogBox.TypeDialog($"{playerUnit.Kreeture.Base.Name} trying to learn {newMove.Base.AttackName}");
 						yield return dialogBox.TypeDialog($"But it cannot learn more than {KreetureBase.MaxNumOfMoves} moves");
 						yield return ChooseMoveToForget(playerUnit.Kreeture, newMove.Base);
 						yield return new WaitUntil(() => state != BattleState.MoveToForget);
@@ -653,13 +653,13 @@ public class BattleSystem : MonoBehaviour
 				if (moveIndex == KreetureBase.MaxNumOfMoves)
 				{
 					// Don't learn the new move
-					StartCoroutine(dialogBox.TypeDialog($"{playerUnit.Kreeture.Base.Name} did not learn {moveToLearn.Name}"));
+					StartCoroutine(dialogBox.TypeDialog($"{playerUnit.Kreeture.Base.Name} did not learn {moveToLearn.AttackName}"));
 				}
 				else
 				{
 					// Forget the selected move and learn new move
 					var selectedMove = playerUnit.Kreeture.Attacks[moveIndex].Base;
-					StartCoroutine(dialogBox.TypeDialog($"{playerUnit.Kreeture.Base.Name} forgot {selectedMove.Name} and learned {moveToLearn.Name}"));
+					StartCoroutine(dialogBox.TypeDialog($"{playerUnit.Kreeture.Base.Name} forgot {selectedMove.AttackName} and learned {moveToLearn.AttackName}"));
 
 					playerUnit.Kreeture.Attacks[moveIndex] = new Attack(moveToLearn);
 				}
@@ -929,7 +929,7 @@ public class BattleSystem : MonoBehaviour
 
 		var nextKreeture = trainerParty.GetHealthyKreeture();
 		enemyUnit.Setup(nextKreeture);
-		yield return dialogBox.TypeDialog($"{trainer.Name} send out {nextKreeture.Base.Name}!");
+		yield return dialogBox.TypeDialog($"{trainer.TrainerName} send out {nextKreeture.Base.Name}!");
 
 		state = BattleState.RunningTurn;
 	}
@@ -958,7 +958,7 @@ public class BattleSystem : MonoBehaviour
 			yield break;
 		}
 
-		yield return dialogBox.TypeDialog($"{player.name} used a {captureItem.Name}");
+		yield return dialogBox.TypeDialog($"{player.name} used a {captureItem.ItemName}");
 
 		//TODO: This needs to be set up in the capture device object
 		var captureDeviceObj = Instantiate(captureDevice.transform, playerUnit.transform.position, Quaternion.identity);

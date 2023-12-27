@@ -149,7 +149,7 @@ public class BattleDialogBox : MonoBehaviour
 		for (int i = 0; i < attackTexts.Count; ++i)
 		{
 			if (i < attack.Count)
-				attackTexts[i].text = attack[i].Base.Name;
+				attackTexts[i].text = attack[i].Base.AttackName;
 			else
 				attackTexts[i].text = "-";
 		}

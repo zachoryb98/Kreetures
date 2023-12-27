@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f9b5d4793618442a7254e71ac9ba2f, type: 3}
   m_Name: Cut
   m_EditorClassIdentifier: 
-  name: Cut
+  attackName: Cut
   description: 
   type: 1
   power: 40

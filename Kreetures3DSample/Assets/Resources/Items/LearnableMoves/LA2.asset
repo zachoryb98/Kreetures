@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61aaac4706cf84946bbf8d906f68ed02, type: 3}
   m_Name: LA2
   m_EditorClassIdentifier: 
-  name: LA2
+  itemName: LA2 Poison Puff
   description: This teaches your kreeture Poison Puff
   icon: {fileID: 21300000, guid: 9069d00d887b3493786ad0c2f526ca78, type: 3}
   attack: {fileID: 11400000, guid: 604c1d7f3a0aa9741bb009108b62f60c, type: 2}
+  isHM: 0

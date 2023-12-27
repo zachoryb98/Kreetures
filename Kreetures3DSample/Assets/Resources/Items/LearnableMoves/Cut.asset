@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61aaac4706cf84946bbf8d906f68ed02, type: 3}
   m_Name: Cut
   m_EditorClassIdentifier: 
-  name: UA1
+  itemName: Cut
   description: This teaches Cut to a kreeture
   icon: {fileID: 21300000, guid: 2dd03bd4961504dc782c77e181c832cc, type: 3}
   attack: {fileID: 11400000, guid: 6482e558a4ad162408f8ed00ab1a5ccf, type: 2}

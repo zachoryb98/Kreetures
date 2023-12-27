@@ -23,7 +23,7 @@ public class Attack
 	{
 		var saveData = new AttackSaveData()
 		{
-			name = Base.Name,
+			name = Base.AttackName,
 			pp = PP
 		};
 		return saveData;

@@ -19,7 +19,7 @@ public class ItemSlotUI : MonoBehaviour
     public void SetData(ItemSlot itemSlot)
     {
         rectTransform = GetComponent<RectTransform>();
-        nameText.text = itemSlot.Item.Name;
+        nameText.text = itemSlot.Item.ItemName;
         countText.text = $"X {itemSlot.Count}";
     }
 }

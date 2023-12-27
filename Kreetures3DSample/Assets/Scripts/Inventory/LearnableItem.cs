@@ -9,7 +9,7 @@ public class LearnableItem : ItemBase
 	[SerializeField] AttackBase attack;
 	[SerializeField] bool isHM;
 
-	public override string Name => base.Name + $": {attack.Name}";
+	public override string ItemName => base.ItemName + $": {attack.AttackName}";
 
 	public override bool Use(Kreeture kreeture)
 	{

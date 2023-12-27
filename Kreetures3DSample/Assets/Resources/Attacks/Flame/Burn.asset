@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f9b5d4793618442a7254e71ac9ba2f, type: 3}
   m_Name: Burn
   m_EditorClassIdentifier: 
-  name: Burn
+  attackName: Burn
   description: 
   type: 2
   power: 30
   accuracy: 100
   alwaysHits: 0
   pp: 20
+  priority: 0
   category: 1
   effects:
     boosts: []
@@ -31,3 +32,4 @@ MonoBehaviour:
     chance: 100
     target: 0
   target: 0
+  requiresMovement: 0

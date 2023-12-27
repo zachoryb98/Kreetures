@@ -13,13 +13,13 @@ public class AttackDB
 		var attackList = Resources.LoadAll<AttackBase>("Attacks");
 		foreach (var attack in attackList)
 		{
-			if (attacks.ContainsKey(attack.Name))
+			if (attacks.ContainsKey(attack.AttackName))
 			{
-				Debug.LogError($"There are two attacks with the name {attack.Name}");
+				Debug.LogError($"There are two attacks with the name {attack.AttackName}");
 				continue;
 			}
 
-			attacks[attack.Name] = attack;
+			attacks[attack.AttackName] = attack;
 		}
 	}
 

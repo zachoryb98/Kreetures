@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Attack", menuName = "Kreeture/Create new attack")]
 public class AttackBase : ScriptableObject
 {
-    [SerializeField] string name;
+    [SerializeField] string attackName;
 
     [TextArea]
     [SerializeField] string description;
@@ -22,9 +22,9 @@ public class AttackBase : ScriptableObject
     [SerializeField] AttackTarget target;
     [SerializeField] bool requiresMovement;
 
-    public string Name
+    public string AttackName
     {
-        get { return name; }
+        get { return attackName; }
     }
 
     public string Description

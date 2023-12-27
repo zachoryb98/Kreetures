@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ItemBase : ScriptableObject
 {
-    [SerializeField] string name;
+    [SerializeField] string itemName;
     [SerializeField] string description;
     [SerializeField] Sprite icon;
 
-    public virtual string Name => name;
+    public virtual string ItemName => itemName;
     public string Description => description;
     public Sprite Icon => icon;
 

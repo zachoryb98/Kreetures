@@ -12,8 +12,7 @@ public class PlayerController : MonoBehaviour, ISavable
 	public GameObject camLookAt;
 	public LayerMask interactableLayer;
 	public LayerMask fovLayer;
-	public float interactDistance = 2.0f; // Set your desired default distance here
-	public event Action<Collider> OnEnterTrainersView;
+	public float interactDistance = 2.0f; // Set your desired default distance here	
 	public bool ContinueDialog = false;
 
 	public KreetureParty playerParty;
