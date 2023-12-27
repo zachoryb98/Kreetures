@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
 			AttackDB.Init();
 			partyScreen.Init();
 			ItemDB.Init();
+			QuestDB.Init();
 
 			menuController = FindObjectOfType<MenuController>();
 

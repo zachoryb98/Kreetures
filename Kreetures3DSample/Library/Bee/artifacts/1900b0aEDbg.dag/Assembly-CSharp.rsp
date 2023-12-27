@@ -417,6 +417,7 @@
 "Assets/Scripts/Data/ConditionsDB.cs"
 "Assets/Scripts/Data/ItemDB.cs"
 "Assets/Scripts/Data/KreetureDB.cs"
+"Assets/Scripts/Data/QuestDB.cs"
 "Assets/Scripts/GameController.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/GamePlay/Dialog.cs"
@@ -454,6 +455,7 @@
 "Assets/Scripts/Saving/SavingSystem.cs"
 "Assets/Scripts/SceneManagement/SceneDetails.cs"
 "Assets/Scripts/UI/MenuController.cs"
+"Assets/Scripts/Util/ScriptableObjectDB.cs"
 -langversion:9.0
 
 /deterministic

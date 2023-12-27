@@ -74,7 +74,7 @@ public class Kreeture
 
 	public Kreeture(KreetureSaveData saveData)
 	{
-		_base = KreetureDB.GetKreetureByName(saveData.name);
+		_base = KreetureDB.GetObjectByName(saveData.name);
 		HP = saveData.hp;
 		level = saveData.level;
 		Exp = saveData.exp;
@@ -96,7 +96,7 @@ public class Kreeture
 	{
 		var saveData = new KreetureSaveData()
 		{
-			name = Base.Name,
+			name = Base.name,
 			hp = HP,
 			level = Level,
 			exp = Exp,

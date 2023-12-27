@@ -15,7 +15,7 @@ public class Attack
 
 	public Attack(AttackSaveData saveData)
 	{		
-		Base = AttackDB.GetAttackByName(saveData.name);
+		Base = AttackDB.GetObjectByName(saveData.name);
 		PP = saveData.pp;
 	}
 
@@ -23,7 +23,7 @@ public class Attack
 	{
 		var saveData = new AttackSaveData()
 		{
-			name = Base.AttackName,
+			name = Base.name,
 			pp = PP
 		};
 		return saveData;

@@ -32,6 +32,6 @@ public class QuestList : MonoBehaviour
 
     public static QuestList GetQuestList()
     {
-        return FindObjectOfType<PlayerController>().GetComponent<QuestList>();
+        return GameManager.Instance.playerController.GetComponent<QuestList>();
     }
 }
