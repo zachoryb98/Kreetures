@@ -5979,6 +5979,24 @@ Transform:
   m_Father: {fileID: 1585518829}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &507267139 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2962049344909364571, guid: 5f7e4ec03280cde40aa6eb2ba34e8240, type: 3}
+  m_PrefabInstance: {fileID: 2962049345297747967}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &507267145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507267139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4881f89f8b930e34489bbb86116ccd4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueId: 
 --- !u!1 &513600608
 GameObject:
   m_ObjectHideFlags: 0
@@ -12082,7 +12100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trainerID: 1Test
   trainerSpawnPosition: {fileID: 1057726316}
-  trainerName: 
+  trainerName: Jeremy
   stoppingDistance: 2
   moveSpeed: 3
   dialog:
@@ -18042,6 +18060,7 @@ GameObject:
   - component: {fileID: 1731802748}
   - component: {fileID: 1731802747}
   - component: {fileID: 1731802746}
+  - component: {fileID: 1731802749}
   m_Layer: 11
   m_Name: StoryItem
   m_TagString: Untagged
@@ -18093,6 +18112,19 @@ Transform:
   m_Father: {fileID: 538770340120660882}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1731802749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731802745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4881f89f8b930e34489bbb86116ccd4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueId: 1a135f7d-2a2a-4af9-a922-8dfad2c25824
 --- !u!1 &1732086844
 GameObject:
   m_ObjectHideFlags: 0
