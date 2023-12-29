@@ -49,6 +49,26 @@ public class KreetureParty : MonoBehaviour
 		}
 	}
 
+	public Dictionary<Kreeture, Evolution> CheckForEvolutions()
+	{
+
+		Dictionary<Kreeture, Evolution> evolutions =  new Dictionary<Kreeture, Evolution>();
+
+		foreach(var kreeture in kreetures)
+		{
+			var evolution = kreeture.CheckForEvolution();
+			if(evolution != null)
+			{
+
+				//Maybe instead here just change scenes, then in the start method kick off evolution things?
+				//yield return EvolutionManager.i.Evolve(kreeture, evolution);				
+				evolutions.Add(kreeture, evolution);
+			}
+		}
+
+		return evolutions;
+    }
+
 	public static KreetureParty GetPlayerParty()
 	{
 		var player = GameManager.Instance.playerController;

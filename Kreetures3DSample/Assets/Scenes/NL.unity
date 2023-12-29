@@ -4598,6 +4598,7 @@ GameObject:
   - component: {fileID: 371447483}
   - component: {fileID: 371447484}
   - component: {fileID: 371447485}
+  - component: {fileID: 371447486}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -4680,6 +4681,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highlightedColor: {r: 0, g: 0.6839905, b: 1, a: 1}
+--- !u!114 &371447486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371447480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83837c638cf946d468825bb1444565e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &371975050
 GameObject:
   m_ObjectHideFlags: 0
@@ -5996,7 +6009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4881f89f8b930e34489bbb86116ccd4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uniqueId: 
+  uniqueId: 1aeeada8-454c-4bbb-abc9-0bb14719dff7
 --- !u!1 &513600608
 GameObject:
   m_ObjectHideFlags: 0
@@ -10002,8 +10015,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2520186635868842268, guid: 10969da776a824a4b9d6905a9c929caa, type: 3}
-      propertyPath: onComplete
+      propertyPath: onStart
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520186635868842268, guid: 10969da776a824a4b9d6905a9c929caa, type: 3}
+      propertyPath: onComplete
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2520186635868842268, guid: 10969da776a824a4b9d6905a9c929caa, type: 3}
       propertyPath: questToCheck
@@ -11010,6 +11027,10 @@ PrefabInstance:
     - target: {fileID: 545682315351394890, guid: 59a51997eb082e449b7eff675857e1ff, type: 3}
       propertyPath: m_Name
       value: Shell
+      objectReference: {fileID: 0}
+    - target: {fileID: 545682315351394890, guid: 59a51997eb082e449b7eff675857e1ff, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 545682315351430762, guid: 59a51997eb082e449b7eff675857e1ff, type: 3}
       propertyPath: m_RootOrder

@@ -26,7 +26,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 6585
+  controlID: 18988
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 6586
+  controlID: 18989
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -401,7 +401,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 0
-      snapOffset: {x: 0, y: 0}
+      snapOffset: {x: 0, y: 25}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Visual Effect
@@ -428,9 +428,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 29.634127, y: -1.0599494, z: 47.22589}
+    m_Target: {x: 0.065853596, y: 10.168468, z: 1.7234774}
     speed: 2
-    m_Value: {x: 29.634127, y: -1.0599494, z: 47.22589}
+    m_Value: {x: 0.065853596, y: 10.168468, z: 1.7234774}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -477,13 +477,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.14357118, y: 0.057860624, z: -0.008374253, w: 0.9879549}
+    m_Target: {x: -0.02002035, y: 0.97769123, z: -0.17822221, w: -0.109846026}
     speed: 2
-    m_Value: {x: -0.14357118, y: -0.057860624, z: 0.008374253, w: -0.98795485}
+    m_Value: {x: -0.020019248, y: 0.9776374, z: -0.17821239, w: -0.109839976}
   m_Size:
-    m_Target: 10.393812
+    m_Target: 9.400462
     speed: 2
-    m_Value: 10.393812
+    m_Value: 9.400462
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -591,9 +591,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 6a790000
-      m_LastClickedID: 31082
-      m_ExpandedIDs: d8faffffcc760000cc770000
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: e278fcffa879fcfff0a9fcff70f7fcffdc27fdffe82efdff00c8fdff2cc9fdfffae3fdff6aedfdff3418feff5269feffb29afeff3eabfeffdeb7feff8eb8fefff4b9feff4af6ffffc4faffffd8fafffff4ffffff16770000b8780000027b00002cb50300d0b603000abb03001ebc0300
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -684,22 +684,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Resources/Items/RecoveryItems
+    - Assets/Monsters Ultimate Pack 02 Cute Series/Spike Cute Series/Prefabs
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Resources/Items/RecoveryItems
+  - Assets/Monsters Ultimate Pack 02 Cute Series/Spike Cute Series/Prefabs
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\zbehr\OneDrive\Desktop\Kreetures\Kreetures3DSample
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 9c880000
-    m_LastClickedID: 34972
-    m_ExpandedIDs: 00000000fc850000fe8500000086000002860000f287000000ca9a3b
+    scrollPos: {x: 0, y: 238}
+    m_SelectedIDs: 8a8a0000
+    m_LastClickedID: 35466
+    m_ExpandedIDs: 0000000016880000188800001a8800001c880000f0890000688a0000728a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -727,7 +727,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000fc850000fe850000008600000286000000ca9a3b
+    m_ExpandedIDs: 0000000016880000188800001a8800001c880000688a0000728a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -752,8 +752,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 6a790000
-    m_LastClickedInstanceID: 31082
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: f0820000
     m_RenameOverlay:

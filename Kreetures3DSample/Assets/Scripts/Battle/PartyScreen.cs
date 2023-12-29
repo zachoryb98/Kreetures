@@ -13,8 +13,7 @@ public class PartyScreen : MonoBehaviour
     [SerializeField] TextMeshProUGUI messageText;
 
     PartyMemberUI[] memberSlots;
-    List<Kreeture> kreetures;
-    KreetureParty party;
+    List<Kreeture> kreetures;    
 
     int selection = 0;
     public Kreeture SelectedMember => kreetures[selection];
@@ -26,16 +25,15 @@ public class PartyScreen : MonoBehaviour
 
     public void Init()
     {
-        memberSlots = GetComponentsInChildren<PartyMemberUI>(true);
-        party = KreetureParty.GetPlayerParty();
+        memberSlots = GetComponentsInChildren<PartyMemberUI>(true);        
         SetPartyData();
 
-        party.OnUpdated += SetPartyData;
+        GameManager.Instance.playerController.GetComponent<KreetureParty>().OnUpdated += SetPartyData;
     }
 
     public void SetPartyData()
     {
-        kreetures = party.Kreetures;
+		kreetures = GameManager.Instance.playerController.GetComponent<KreetureParty>().Kreetures;
 
         for (int i = 0; i < memberSlots.Length; i++)
         {

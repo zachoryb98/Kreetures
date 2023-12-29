@@ -24,23 +24,35 @@ public class QuestObject : MonoBehaviour
 
     public void UpdateObjectStatus()
     {
-        if (onStart != ObjectActions.DoNothing && questList.IsStarted(questToCheck.QuestName))
+        if (onStart != ObjectActions.DoNothing && questList.IsStarted(questToCheck.name))
         {
             foreach (Transform child in transform)
             {
                 if (onStart == ObjectActions.Enable)
+                {
                     child.gameObject.SetActive(true);
+
+                    var savable = child.GetComponent<SavableEntity>();
+                    if (savable != null)
+                        SavingSystem.i.RestoreEntity(savable);
+                }
                 else if (onStart == ObjectActions.Disable)
                     child.gameObject.SetActive(false);
             }
         }
 
-        if (onComplete != ObjectActions.DoNothing && questList.IsCompleted(questToCheck.QuestName))
+        if (onComplete != ObjectActions.DoNothing && questList.IsCompleted(questToCheck.name))
         {
             foreach (Transform child in transform)
             {
                 if (onComplete == ObjectActions.Enable)
+                {
                     child.gameObject.SetActive(true);
+
+                    var savable = child.GetComponent<SavableEntity>();
+                    if (savable != null)
+                        SavingSystem.i.RestoreEntity(savable);
+                }
                 else if (onComplete == ObjectActions.Disable)
                     child.gameObject.SetActive(false);
             }

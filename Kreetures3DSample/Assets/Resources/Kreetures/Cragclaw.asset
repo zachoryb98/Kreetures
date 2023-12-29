@@ -23,7 +23,7 @@ MonoBehaviour:
   elmtStrike: 60
   elmtWard: 50
   speed: 20
-  expYield: 200
+  expYield: 400
   growthRate: 1
   catchRate: 255
   learnableMoves:
@@ -31,9 +31,11 @@ MonoBehaviour:
     level: 1
   - moveBase: {fileID: 11400000, guid: 5d3d6f203ecc91b44a4123b6e84d37f0, type: 2}
     level: 1
-  - moveBase: {fileID: 11400000, guid: 28801a895615e2d42be1c17113e9304d, type: 2}
-    level: 4
   - moveBase: {fileID: 11400000, guid: 10dbb3f96fb0af34caa15139b22323be, type: 2}
     level: 7
   - moveBase: {fileID: 11400000, guid: f7d688da910d82d4f922f6d509e5b3fa, type: 2}
-    level: 8
+    level: 7
+  learnableByItems: []
+  evolutions:
+  - evolvesInto: {fileID: 11400000, guid: 0ffc4aa0af6237f49a3f510fb475d50a, type: 2}
+    requiredLevel: 8

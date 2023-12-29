@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum GameState { FreeRoam, Battle, Dialog, Menu, Cutscene, Bag, Paused, PartyScreen }
+public enum GameState { FreeRoam, Battle, Dialog, Menu, Cutscene, Bag, Paused, PartyScreen, Evolution }
 
 public class GameManager : MonoBehaviour
 {
@@ -39,7 +39,10 @@ public class GameManager : MonoBehaviour
 
     List<SavableEntity> savableEntities;
 
-	private void Awake()
+	Dictionary<Kreeture, Evolution> evolutionsToPass = null;
+
+
+    private void Awake()
 	{
 		if (Instance == null)
 		{
@@ -157,7 +160,21 @@ public class GameManager : MonoBehaviour
 			state = GameState.FreeRoam;
 		};
 
-		menuController.onMenuSelected += OnMenuSelected;
+        EvolutionManager.i.OnStartEvolution += () => state = GameState.Evolution;
+		EvolutionManager.i.OnCompleteEvolution += () =>
+		{
+            string previousSceneName = GetPreviousScene();
+
+            var currScene = SceneManager.GetSceneByName(gameObject.name);
+
+            state = GameState.FreeRoam;
+
+            SceneManager.LoadScene(previousSceneName);
+
+            partyScreen.Init();
+        };
+
+        menuController.onMenuSelected += OnMenuSelected;
 	}
 
 	public void TransitionToBattle(string sceneToLoad)
@@ -289,7 +306,26 @@ public class GameManager : MonoBehaviour
 		SceneManager.LoadScene(sceneToLoad);
 	}
 
-	public void SaveOnDemand()
+	public void OpenEvolutionScene(Dictionary<Kreeture, Evolution> evolutions)
+	{
+		evolutionsToPass = evolutions;
+
+        SaveOnDemand();
+
+        SceneManager.LoadScene(2);		
+    }
+
+	public Dictionary<Kreeture, Evolution> GetEvolutions()
+	{
+		return evolutionsToPass;
+	}
+
+    public void ResetEvolutions()
+    {
+        evolutionsToPass = null;
+    }
+
+    public void SaveOnDemand()
 	{
 		savableEntities = GetSavableEntitiesInScene();
 		SavingSystem.i.CaptureEntityStates(savableEntities);

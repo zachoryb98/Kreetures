@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 122f197f81b745f4fb4d891ac81252a6, type: 3}
+  m_Name: Shellspike
+  m_EditorClassIdentifier: 
+  kreetureName: Shellspike
+  description: This is the evolved form of Cragclaw
+  modelPrefab: {fileID: 1540857387673783191, guid: 19733e9f226cb484da2a78534abf28f5, type: 3}
+  type1: 3
+  type2: 13
+  maxHp: 40
+  attack: 50
+  defense: 80
+  elmtStrike: 60
+  elmtWard: 80
+  speed: 40
+  expYield: 50
+  growthRate: 0
+  catchRate: 255
+  learnableMoves:
+  - moveBase: {fileID: 11400000, guid: 6d42cc87a6ac78b4797c4e20c693a2a3, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: 5d3d6f203ecc91b44a4123b6e84d37f0, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: 10dbb3f96fb0af34caa15139b22323be, type: 2}
+    level: 7
+  - moveBase: {fileID: 11400000, guid: f7d688da910d82d4f922f6d509e5b3fa, type: 2}
+    level: 8
+  - moveBase: {fileID: 11400000, guid: 54e601473e322254aa53ca9b2ea56974, type: 2}
+    level: 9
+  - moveBase: {fileID: 11400000, guid: cfa7e234d8479c7408c85a9ad5e72f34, type: 2}
+    level: 10
+  learnableByItems:
+  - {fileID: 11400000, guid: 6482e558a4ad162408f8ed00ab1a5ccf, type: 2}

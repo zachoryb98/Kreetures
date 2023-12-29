@@ -423,6 +423,7 @@
 "Assets/Scripts/GamePlay/Dialog.cs"
 "Assets/Scripts/GamePlay/DialogManager.cs"
 "Assets/Scripts/GamePlay/EncounterManager.cs"
+"Assets/Scripts/GamePlay/EvolutionManager.cs"
 "Assets/Scripts/GamePlay/GlobalSettings.cs"
 "Assets/Scripts/GamePlay/Healer.cs"
 "Assets/Scripts/GamePlay/Interactable.cs"

@@ -35,8 +35,9 @@ public class KreetureBase : ScriptableObject
     [SerializeField] List<LearnableMove> learnableMoves;
 	[SerializeField] List<AttackBase> learnableByItems;
 
+    [SerializeField] List<Evolution> evolutions;
 
-	public static int MaxNumOfMoves { get; set; } = 4;
+    public static int MaxNumOfMoves { get; set; } = 4;
 
     public int GetExpForLevel(int level)
 	{
@@ -114,7 +115,9 @@ public class KreetureBase : ScriptableObject
 
 	public List<AttackBase> LearnableByItems => learnableByItems;
 
-	public int CatchRate => catchRate;
+    public List<Evolution> Evolutions => evolutions;
+
+    public int CatchRate => catchRate;
 
     public int ExpYield => expYield;
 
@@ -136,6 +139,17 @@ public class LearnableMove
     {
         get { return level; }
     }
+}
+
+
+[System.Serializable]
+public class Evolution
+{
+    [SerializeField] KreetureBase evolvesInto;
+    [SerializeField] int requiredLevel;
+
+    public KreetureBase EvolvesInto => evolvesInto;
+    public int RequiredLevel => requiredLevel;
 }
 
 public enum KreetureType
