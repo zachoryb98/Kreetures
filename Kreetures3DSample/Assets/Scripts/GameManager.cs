@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
 
 	public GameState state;
     public GameState prevState;
+	public GameState stateBeforeEvolution;
 
     List<SavableEntity> savableEntities;
 
@@ -160,14 +161,23 @@ public class GameManager : MonoBehaviour
 			state = GameState.FreeRoam;
 		};
 
-        EvolutionManager.i.OnStartEvolution += () => state = GameState.Evolution;
+		EvolutionManager.i.OnStartEvolution += () =>
+		{
+			stateBeforeEvolution = state;
+			state = GameState.Evolution;
+		};
 		EvolutionManager.i.OnCompleteEvolution += () =>
 		{
             string previousSceneName = GetPreviousScene();
 
             var currScene = SceneManager.GetSceneByName(gameObject.name);
 
-            state = GameState.FreeRoam;
+            state = stateBeforeEvolution;
+
+			if(state == GameState.Bag)
+			{
+				inventoryUI.gameObject.SetActive(true);
+			}
 
             SceneManager.LoadScene(previousSceneName);
 
@@ -306,9 +316,21 @@ public class GameManager : MonoBehaviour
 		SceneManager.LoadScene(sceneToLoad);
 	}
 
-	public void OpenEvolutionScene(Dictionary<Kreeture, Evolution> evolutions)
+	public void OpenEvolutionScene(Dictionary<Kreeture, Evolution> evolutions, bool isItem=false)
 	{
-		evolutionsToPass = evolutions;
+		//If item is being used from overworld
+		if (isItem)
+		{
+            playerController.gameObject.SetActive(false);
+            Instance.SetPreviousScene(SceneManager.GetActiveScene().name);
+
+            // Store player position and rotation
+            Vector3 playerPosition = playerController.transform.position;
+            Quaternion playerRotation = playerController.transform.rotation;
+            SetPlayerPosition(playerPosition, playerRotation);
+        }        
+
+        evolutionsToPass = evolutions;
 
         SaveOnDemand();
 

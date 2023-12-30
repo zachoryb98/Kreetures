@@ -15,7 +15,7 @@ C:/Users/zbehr/OneDrive/Desktop/Kreetures/Kreetures3DSample
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-63589
+61369
 Successfully changed project path to: C:/Users/zbehr/OneDrive/Desktop/Kreetures/Kreetures3DSample
 C:/Users/zbehr/OneDrive/Desktop/Kreetures/Kreetures3DSample
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,7 +47,7 @@ C:/Users/zbehr/OneDrive/Desktop/Kreetures/Kreetures3DSample
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 126.70 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 121.32 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.7f1 (24e8595d6d43)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/Resources/UnitySubsystems
@@ -63,95 +63,165 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56692
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56236
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
-Registered in 0.006493 seconds.
+Registered in 0.007831 seconds.
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 115.81 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 117.57 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.553 seconds
+- Completed reload, in  0.564 seconds
 Domain Reload Profiling:
-	ReloadAssembly (554ms)
-		BeginReloadAssembly (62ms)
+	ReloadAssembly (565ms)
+		BeginReloadAssembly (67ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (410ms)
-			LoadAssemblies (61ms)
+		EndReloadAssembly (406ms)
+			LoadAssemblies (66ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
 			SetupTypeCache (70ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (22ms)
-			SetupLoadedEditorAssemblies (277ms)
+			RebuildScriptCaches (24ms)
+			SetupLoadedEditorAssemblies (265ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (8ms)
+				InitializePlatformSupportModulesInManaged (10ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (116ms)
+				RefreshPlugins (118ms)
 				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (114ms)
-				ProcessInitializeOnLoadMethodAttributes (38ms)
+				ProcessInitializeOnLoadAttributes (102ms)
+				ProcessInitializeOnLoadMethodAttributes (35ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.008506 seconds.
+Registered in 0.008119 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\OneDrive\Desktop\Kreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\OneDrive\Desktop\Kreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 120.73 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 121.68 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.349 seconds
+- Completed reload, in  1.442 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1350ms)
-		BeginReloadAssembly (95ms)
+	ReloadAssembly (1443ms)
+		BeginReloadAssembly (133ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
+			DisableScriptedObjects (5ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (16ms)
-		EndReloadAssembly (1163ms)
-			LoadAssemblies (100ms)
+			CreateAndSetChildDomain (17ms)
+		EndReloadAssembly (1225ms)
+			LoadAssemblies (116ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (262ms)
+			SetupTypeCache (287ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (78ms)
-			SetupLoadedEditorAssemblies (687ms)
+			RebuildScriptCaches (83ms)
+			SetupLoadedEditorAssemblies (728ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (6ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (121ms)
-				BeforeProcessingInitializeOnLoad (110ms)
-				ProcessInitializeOnLoadAttributes (377ms)
+				RefreshPlugins (122ms)
+				BeforeProcessingInitializeOnLoad (113ms)
+				ProcessInitializeOnLoadAttributes (414ms)
 				ProcessInitializeOnLoadMethodAttributes (67ms)
-				AfterProcessingInitializeOnLoad (6ms)
+				AfterProcessingInitializeOnLoad (5ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 1.17 ms, found 3 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.09 seconds
+Refreshing native plugins compatible for Editor in 2.85 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 6594 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 63 unused Assets / (2.4 MB). Loaded Objects now: 7066.
+Unloading 6596 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 63 unused Assets / (2.4 MB). Loaded Objects now: 7068.
 Memory consumption went from 333.3 MB to 330.9 MB.
-Total: 4.255900 ms (FindLiveObjects: 0.427800 ms CreateObjectMapping: 0.238300 ms MarkObjects: 3.170500 ms  DeleteObjects: 0.418100 ms)
+Total: 3.808500 ms (FindLiveObjects: 0.414300 ms CreateObjectMapping: 0.233600 ms MarkObjects: 2.776300 ms  DeleteObjects: 0.383600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.009646 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\OneDrive\Desktop\Kreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\OneDrive\Desktop\Kreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.12 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[FlatKit] Example Renderer is missing RendererFeatures
+This could be due to missing scripts or compile error.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object,UnityEngine.Object)
+UnityEngine.Debug:LogError (object,UnityEngine.Object)
+UnityEngine.Rendering.Universal.ScriptableRendererData:ValidateRendererFeatures () (at Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Runtime/ScriptableRendererData.cs:181)
+UnityEngine.Rendering.Universal.ScriptableRendererData:OnValidate () (at Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Runtime/ScriptableRendererData.cs:76)
+UnityEngine.Rendering.Universal.UniversalRendererData:OnValidate () (at Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Runtime/UniversalRendererData.cs:242)
+
+(Filename: Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Runtime/ScriptableRendererData.cs Line: 181)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.198 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1198ms)
+		BeginReloadAssembly (139ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (44ms)
+		EndReloadAssembly (973ms)
+			LoadAssemblies (100ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (231ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (66ms)
+			SetupLoadedEditorAssemblies (501ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (12ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (81ms)
+				ProcessInitializeOnLoadAttributes (290ms)
+				ProcessInitializeOnLoadMethodAttributes (110ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (50ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 2.49 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 6379 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 46 unused Assets / (2.3 MB). Loaded Objects now: 7079.
+Memory consumption went from 323.8 MB to 321.5 MB.
+Total: 3.695800 ms (FindLiveObjects: 0.320700 ms CreateObjectMapping: 0.207800 ms MarkObjects: 2.922500 ms  DeleteObjects: 0.243800 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -165,112 +235,210 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 1095690.806839 seconds.
-  path: Assets/Monsters Ultimate Pack 02 Cute Series/Spike Cute Series/Prefabs/Spike.prefab
-  artifactKey: Guid(19733e9f226cb484da2a78534abf28f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Monsters Ultimate Pack 02 Cute Series/Spike Cute Series/Prefabs/Spike.prefab using Guid(19733e9f226cb484da2a78534abf28f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4ca9455ff6147f65a3c81cfa47d30a2f') in 0.268808 seconds 
+  Time since last request: 1185434.950851 seconds.
+  path: Assets/Scripts/Inventory/EvolutionItem.cs
+  artifactKey: Guid(eb5c133b33dd4d942a223513eded47b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Inventory/EvolutionItem.cs using Guid(eb5c133b33dd4d942a223513eded47b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bed624795f468df90844acee4af5d8e3') in 0.032304 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 64.337257 seconds.
-  path: Assets/Resources/Kreetures/Shellspike.asset
-  artifactKey: Guid(0ffc4aa0af6237f49a3f510fb475d50a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/Kreetures/Shellspike.asset using Guid(0ffc4aa0af6237f49a3f510fb475d50a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9fcabdca8d365c86cc14d90c7527b38e') in 0.027491 seconds 
+  Time since last request: 40.770339 seconds.
+  path: Assets/Scripts/Inventory/EvolutionItem.cs
+  artifactKey: Guid(eb5c133b33dd4d942a223513eded47b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Inventory/EvolutionItem.cs using Guid(eb5c133b33dd4d942a223513eded47b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a9fc7c44db28461656515f164b0c9c8') in 0.002847 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 28.660661 seconds.
-  path: Assets/Monsters Ultimate Pack 02 Cute Series/Spike Cute Series/FBX/Spike.FBX
-  artifactKey: Guid(57d6acb7c5e135d4e838f00790b786ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Monsters Ultimate Pack 02 Cute Series/Spike Cute Series/FBX/Spike.FBX using Guid(57d6acb7c5e135d4e838f00790b786ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '94477bd103d9d120bc15844eb8cc43d7') in 0.114959 seconds 
+  Time since last request: 11.025411 seconds.
+  path: Assets/Scripts/Inventory/EvolutionItem.cs
+  artifactKey: Guid(eb5c133b33dd4d942a223513eded47b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Inventory/EvolutionItem.cs using Guid(eb5c133b33dd4d942a223513eded47b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3cf2f48fe8476f364fb9b3d27058e5e0') in 0.003119 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.009891 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\OneDrive\Desktop\Kreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\OneDrive\Desktop\Kreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.16 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[FlatKit] Example Renderer is missing RendererFeatures
+This could be due to missing scripts or compile error.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object,UnityEngine.Object)
+UnityEngine.Debug:LogError (object,UnityEngine.Object)
+UnityEngine.Rendering.Universal.ScriptableRendererData:ValidateRendererFeatures () (at Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Runtime/ScriptableRendererData.cs:181)
+UnityEngine.Rendering.Universal.ScriptableRendererData:OnValidate () (at Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Runtime/ScriptableRendererData.cs:76)
+UnityEngine.Rendering.Universal.UniversalRendererData:OnValidate () (at Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Runtime/UniversalRendererData.cs:242)
+
+(Filename: Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Runtime/ScriptableRendererData.cs Line: 181)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.305 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1306ms)
+		BeginReloadAssembly (131ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (41ms)
+		EndReloadAssembly (1079ms)
+			LoadAssemblies (105ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (288ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (76ms)
+			SetupLoadedEditorAssemblies (545ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (13ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (86ms)
+				ProcessInitializeOnLoadAttributes (363ms)
+				ProcessInitializeOnLoadMethodAttributes (75ms)
+				AfterProcessingInitializeOnLoad (7ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (27ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 4.94 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 6379 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 42 unused Assets / (2.3 MB). Loaded Objects now: 7094.
+Memory consumption went from 323.8 MB to 321.5 MB.
+Total: 3.363300 ms (FindLiveObjects: 0.321900 ms CreateObjectMapping: 0.212300 ms MarkObjects: 2.587900 ms  DeleteObjects: 0.240300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.032403 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\OneDrive\Desktop\Kreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\OneDrive\Desktop\Kreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.27 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[FlatKit] Example Renderer is missing RendererFeatures
+This could be due to missing scripts or compile error.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object,UnityEngine.Object)
+UnityEngine.Debug:LogError (object,UnityEngine.Object)
+UnityEngine.Rendering.Universal.ScriptableRendererData:ValidateRendererFeatures () (at Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Runtime/ScriptableRendererData.cs:181)
+UnityEngine.Rendering.Universal.ScriptableRendererData:OnValidate () (at Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Runtime/ScriptableRendererData.cs:76)
+UnityEngine.Rendering.Universal.UniversalRendererData:OnValidate () (at Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Runtime/UniversalRendererData.cs:242)
+
+(Filename: Library/PackageCache/com.unity.render-pipelines.universal@12.1.7/Runtime/ScriptableRendererData.cs Line: 181)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.306 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1307ms)
+		BeginReloadAssembly (168ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (38ms)
+		EndReloadAssembly (1052ms)
+			LoadAssemblies (218ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (266ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (83ms)
+			SetupLoadedEditorAssemblies (470ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (14ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (92ms)
+				ProcessInitializeOnLoadAttributes (283ms)
+				ProcessInitializeOnLoadMethodAttributes (73ms)
+				AfterProcessingInitializeOnLoad (7ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (17ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 2.52 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 6379 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 42 unused Assets / (2.3 MB). Loaded Objects now: 7109.
+Memory consumption went from 323.9 MB to 321.5 MB.
+Total: 3.690600 ms (FindLiveObjects: 0.514300 ms CreateObjectMapping: 0.235700 ms MarkObjects: 2.667400 ms  DeleteObjects: 0.272000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000040 seconds.
-  path: Assets/Monsters Ultimate Pack 02 Cute Series/Spike Cute Series/FBX/Spike@Turn Right.FBX
-  artifactKey: Guid(a675d63cdafea2d41b39ba1462a36d37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Monsters Ultimate Pack 02 Cute Series/Spike Cute Series/FBX/Spike@Turn Right.FBX using Guid(a675d63cdafea2d41b39ba1462a36d37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9ab5f5f82a870d0b2697c7c55ac42ddf') in 0.071538 seconds 
+  Time since last request: 33.947088 seconds.
+  path: Assets/Resources/Items/EvolutionItems
+  artifactKey: Guid(75c5d40cceca64847ba107bfb63c4a04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Items/EvolutionItems using Guid(75c5d40cceca64847ba107bfb63c4a04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e32f06ad0ee84a6831ba83876e772fb9') in 0.009212 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000050 seconds.
-  path: Assets/Monsters Ultimate Pack 02 Cute Series/Spike Cute Series/FBX/Spike@Hide and Look Around.FBX
-  artifactKey: Guid(11ff083abe23bee4392526abb35a13fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Monsters Ultimate Pack 02 Cute Series/Spike Cute Series/FBX/Spike@Hide and Look Around.FBX using Guid(11ff083abe23bee4392526abb35a13fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d3042281e92f7ab72a8c35895e2fd84') in 0.064020 seconds 
+  Time since last request: 10.096720 seconds.
+  path: Assets/Resources/Items/EvolutionItems/New Evolution Item.asset
+  artifactKey: Guid(370bcc41d43229f4fa82dd70c7b2b0d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Items/EvolutionItems/New Evolution Item.asset using Guid(370bcc41d43229f4fa82dd70c7b2b0d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fffcb691f486c7924aeb8d2a6f81a550') in 0.042006 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000047 seconds.
-  path: Assets/Monsters Ultimate Pack 02 Cute Series/Spike Cute Series/FBX/Spike@Hide and Spin Attack W Root.FBX
-  artifactKey: Guid(2fb3a2c3d56003f48b0e222ac744fb4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Monsters Ultimate Pack 02 Cute Series/Spike Cute Series/FBX/Spike@Hide and Spin Attack W Root.FBX using Guid(2fb3a2c3d56003f48b0e222ac744fb4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bce6470bdf5f274e0a517d8268ff158d') in 0.070623 seconds 
+  Time since last request: 20.602495 seconds.
+  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/512/ItemIcon_Ticket_Blue.png
+  artifactKey: Guid(5d0c2433b1a5b47469b499fd291ceea0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/512/ItemIcon_Ticket_Blue.png using Guid(5d0c2433b1a5b47469b499fd291ceea0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e1d1295a333d9c88d9f052b35d2b592b') in 0.162676 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000032 seconds.
-  path: Assets/Monsters Ultimate Pack 02 Cute Series/Spike Cute Series/FBX/Spike@Walk Right W Root.FBX
-  artifactKey: Guid(08ec507bc3489974d9467d4bd68f2eeb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Monsters Ultimate Pack 02 Cute Series/Spike Cute Series/FBX/Spike@Walk Right W Root.FBX using Guid(08ec507bc3489974d9467d4bd68f2eeb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '580d6cbd630ea8dfc6eabf25938c72c0') in 0.054830 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000034 seconds.
-  path: Assets/Monsters Ultimate Pack 02 Cute Series/Spike Cute Series/FBX/Spike@Take Damage.FBX
-  artifactKey: Guid(25f563d4e6b57de4e8fa9ae08b07785c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Monsters Ultimate Pack 02 Cute Series/Spike Cute Series/FBX/Spike@Take Damage.FBX using Guid(25f563d4e6b57de4e8fa9ae08b07785c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '527b203b5c1441565b6e3b3c6dbd88f8') in 0.059018 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000049 seconds.
-  path: Assets/Monsters Ultimate Pack 02 Cute Series/Spike Cute Series/FBX/Spike@Idle.FBX
-  artifactKey: Guid(6fada02ef71162149b340e49fa800a51) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Monsters Ultimate Pack 02 Cute Series/Spike Cute Series/FBX/Spike@Idle.FBX using Guid(6fada02ef71162149b340e49fa800a51) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '086ff97ac62cf2a1dc8a21a39b5abde5') in 0.069504 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000049 seconds.
-  path: Assets/Monsters Ultimate Pack 02 Cute Series/Spike Cute Series/FBX/Spike@Walk Right In Place.FBX
-  artifactKey: Guid(57fb6c1f711c19948a69a6218c597a2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Monsters Ultimate Pack 02 Cute Series/Spike Cute Series/FBX/Spike@Walk Right In Place.FBX using Guid(57fb6c1f711c19948a69a6218c597a2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b3eb9b838a33976108df93d249b00131') in 0.064806 seconds 
+  Time since last request: 0.000022 seconds.
+  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Label/Label_Ribbon01_Blue.png
+  artifactKey: Guid(102172abc20214907890077ae03a8fb0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Label/Label_Ribbon01_Blue.png using Guid(102172abc20214907890077ae03a8fb0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec99efa460e206f3df03bf97f0ec4438') in 0.023559 seconds 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000028 seconds.
-  path: Assets/Monsters Ultimate Pack 02 Cute Series/Spike Cute Series/FBX/Spike@Hide.FBX
-  artifactKey: Guid(1f8883cae8343ca4bb302326820b0dae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Monsters Ultimate Pack 02 Cute Series/Spike Cute Series/FBX/Spike@Hide.FBX using Guid(1f8883cae8343ca4bb302326820b0dae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85b95f9b2b2d3c0edda5eaa5b4b8ec33') in 0.057257 seconds 
+  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Label/Label_Trapezoidal01_Blue.png
+  artifactKey: Guid(7d8e173023163406c9bf1dba93bcbf0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Label/Label_Trapezoidal01_Blue.png using Guid(7d8e173023163406c9bf1dba93bcbf0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c5f941dd60402209c0d3057aee8d98cd') in 0.016140 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000044 seconds.
-  path: Assets/Monsters Ultimate Pack 02 Cute Series/Spike Cute Series/FBX/Spike@Claw Attack.FBX
-  artifactKey: Guid(b854bf3b9cef1df48b9be0640e3e2b60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Monsters Ultimate Pack 02 Cute Series/Spike Cute Series/FBX/Spike@Claw Attack.FBX using Guid(b854bf3b9cef1df48b9be0640e3e2b60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '450bc0e5e575112c4dabd9eff91c9301') in 0.059962 seconds 
+  Time since last request: 0.000032 seconds.
+  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/256/ItemIcon_Ticket_Blue.Png
+  artifactKey: Guid(96f8bd3e50fdf4779bc6d7fa2f746d1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/256/ItemIcon_Ticket_Blue.Png using Guid(96f8bd3e50fdf4779bc6d7fa2f746d1c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '119db724166d08bc599c08097490392b') in 0.024124 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000042 seconds.
-  path: Assets/Monsters Ultimate Pack 02 Cute Series/Spike Cute Series/FBX/Spike@Walk Left In Place.FBX
-  artifactKey: Guid(3efaa4e020a976c4b8b464d9e5ec9f1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Monsters Ultimate Pack 02 Cute Series/Spike Cute Series/FBX/Spike@Walk Left In Place.FBX using Guid(3efaa4e020a976c4b8b464d9e5ec9f1f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea4ecfaca1b40785473b0bfb630e6807') in 0.058335 seconds 
+  Time since last request: 0.000024 seconds.
+  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Slider/Slider_Basic01_Fill_Blue.Png
+  artifactKey: Guid(5a0addb7d54814d15bb4f87f6571e887) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Slider/Slider_Basic01_Fill_Blue.Png using Guid(5a0addb7d54814d15bb4f87f6571e887) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f091ee86fd3c250d42280e1dbeba7e9a') in 0.016225 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000036 seconds.
-  path: Assets/Monsters Ultimate Pack 02 Cute Series/Spike Cute Series/FBX/Spike@Walk Forward In Place.FBX
-  artifactKey: Guid(1fa2d8a8bdc120c41b963acfcf916acd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Monsters Ultimate Pack 02 Cute Series/Spike Cute Series/FBX/Spike@Walk Forward In Place.FBX using Guid(1fa2d8a8bdc120c41b963acfcf916acd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9100f523628521f1a892d73dfba0913a') in 0.058646 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 36.246864 seconds.
-  path: Assets/Resources/Attacks/Enigma/Confuse Ray.asset
-  artifactKey: Guid(6bbedb9f3b91e88408addd03d1eed7b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/Attacks/Enigma/Confuse Ray.asset using Guid(6bbedb9f3b91e88408addd03d1eed7b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '439075d3c12aec6b0b22798085c7c3ce') in 0.007634 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000052 seconds.
-  path: Assets/Resources/Attacks/Neutral/Scratch.asset
-  artifactKey: Guid(6d42cc87a6ac78b4797c4e20c693a2a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/Attacks/Neutral/Scratch.asset using Guid(6d42cc87a6ac78b4797c4e20c693a2a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9057df3597b9ebf3d4e0a0685498915c') in 0.004274 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000035 seconds.
-  path: Assets/Resources/Attacks/Volt/Tazing Strike.asset
-  artifactKey: Guid(43e933553e4321b4b842decfc9fbb4ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/Attacks/Volt/Tazing Strike.asset using Guid(43e933553e4321b4b842decfc9fbb4ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7b29dd7f00d80f55b8cbfc71d3d0e5ee') in 0.004527 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000030 seconds.
-  path: Assets/Resources/Attacks/Neutral/Growl.asset
-  artifactKey: Guid(44e7c6bd66a9e3045a25a2ba51711d37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/Attacks/Neutral/Growl.asset using Guid(44e7c6bd66a9e3045a25a2ba51711d37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a2cb0c23470c1d3531d35ed3c6568c0d') in 0.003310 seconds 
+  Time since last request: 0.000025 seconds.
+  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Slider/Slider_Basic02_Demo_Fill_Blue.Png
+  artifactKey: Guid(95aada0c1007647b490f38a9f7e946d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Slider/Slider_Basic02_Demo_Fill_Blue.Png using Guid(95aada0c1007647b490f38a9f7e946d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52284eafce4a2931b8e715ee639930e1') in 0.019053 seconds 
 Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
 AssetImportWorker is now disconnected from the server
 Process exiting

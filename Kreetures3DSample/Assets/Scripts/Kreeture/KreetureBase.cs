@@ -147,9 +147,13 @@ public class Evolution
 {
     [SerializeField] KreetureBase evolvesInto;
     [SerializeField] int requiredLevel;
+    [SerializeField] EvolutionItem requiredItem;
 
     public KreetureBase EvolvesInto => evolvesInto;
+
     public int RequiredLevel => requiredLevel;
+
+    public ItemBase RequiredItem => requiredItem;
 }
 
 public enum KreetureType

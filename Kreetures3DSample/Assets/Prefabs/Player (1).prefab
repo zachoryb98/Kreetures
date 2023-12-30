@@ -1650,6 +1650,8 @@ MonoBehaviour:
     count: 2
   - item: {fileID: 11400000, guid: c5220ca98d3665846b592f172308b283, type: 2}
     count: 2
+  - item: {fileID: 11400000, guid: 370bcc41d43229f4fa82dd70c7b2b0d8, type: 2}
+    count: 1
   captureDeviceSlots:
   - item: {fileID: 11400000, guid: f90be6ba07e31e04c8b9caa166577cf3, type: 2}
     count: 5

@@ -432,6 +432,7 @@
 "Assets/Scripts/GamePlay/StoryItem.cs"
 "Assets/Scripts/GamePlay/TrainerEncounterManager.cs"
 "Assets/Scripts/Inventory/CaptureDeviceItem.cs"
+"Assets/Scripts/Inventory/EvolutionItem.cs"
 "Assets/Scripts/Inventory/Inventory.cs"
 "Assets/Scripts/Inventory/ItemBase.cs"
 "Assets/Scripts/Inventory/ItemGiver.cs"

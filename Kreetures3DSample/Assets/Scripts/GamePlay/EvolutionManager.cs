@@ -30,6 +30,7 @@ public class EvolutionManager : MonoBehaviour
 
     public void StartEvolution()
     {
+        GameManager.Instance.inventoryUI.gameObject.SetActive(false);
         FetchEvolutionInfo();
     }
 

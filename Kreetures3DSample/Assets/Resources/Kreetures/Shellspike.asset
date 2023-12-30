@@ -41,3 +41,7 @@ MonoBehaviour:
     level: 10
   learnableByItems:
   - {fileID: 11400000, guid: 6482e558a4ad162408f8ed00ab1a5ccf, type: 2}
+  evolutions:
+  - evolvesInto: {fileID: 11400000, guid: 69dc0cfd791c5bb40897fe24a1a3d56f, type: 2}
+    requiredLevel: 8
+    requiredItem: {fileID: 11400000, guid: 370bcc41d43229f4fa82dd70c7b2b0d8, type: 2}
