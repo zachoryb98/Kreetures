@@ -116,7 +116,10 @@ public class Kreeture
 		Stats.Add(Stat.ElementalWard, Mathf.FloorToInt((Base.ElmtWard * Level) / 100f) + 5);
 		Stats.Add(Stat.Speed, Mathf.FloorToInt((Base.Speed * Level) / 100f) + 5);
 
+		int oldMaxHP = MaxHp;
 		MaxHp = Mathf.FloorToInt((Base.MaxHp * Level) / 100f) + 10 + Level;
+
+		HP += MaxHp - oldMaxHP;
 	}
 
 	void ResetStatBoost()
@@ -171,7 +174,8 @@ public class Kreeture
 	{
 		if (Exp > Base.GetExpForLevel(level + 1))
 		{
-			++level;			
+			++level;
+			CalculateStats();
 			return true;
 		}
 
@@ -199,7 +203,7 @@ public class Kreeture
 
 	public Evolution CheckForEvolution()
 	{
-		return Base.Evolutions.FirstOrDefault(e => e.RequiredLevel == level);
+		return Base.Evolutions.FirstOrDefault(e => e.RequiredLevel <= level);
 	}
 
     public Evolution CheckForEvolution(ItemBase item)

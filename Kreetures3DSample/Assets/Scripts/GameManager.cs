@@ -178,10 +178,14 @@ public class GameManager : MonoBehaviour
 			{
 				inventoryUI.gameObject.SetActive(true);
 			}
+			else
+			{
+				state = GameState.FreeRoam;
+			}
 
             SceneManager.LoadScene(previousSceneName);
 
-            partyScreen.Init();
+			partyScreen.SetPartyData();
         };
 
         menuController.onMenuSelected += OnMenuSelected;

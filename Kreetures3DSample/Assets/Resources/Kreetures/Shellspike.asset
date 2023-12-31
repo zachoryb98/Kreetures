@@ -17,7 +17,7 @@ MonoBehaviour:
   modelPrefab: {fileID: 1540857387673783191, guid: 19733e9f226cb484da2a78534abf28f5, type: 3}
   type1: 3
   type2: 13
-  maxHp: 40
+  maxHp: 60
   attack: 50
   defense: 80
   elmtStrike: 60
@@ -41,7 +41,4 @@ MonoBehaviour:
     level: 10
   learnableByItems:
   - {fileID: 11400000, guid: 6482e558a4ad162408f8ed00ab1a5ccf, type: 2}
-  evolutions:
-  - evolvesInto: {fileID: 11400000, guid: 69dc0cfd791c5bb40897fe24a1a3d56f, type: 2}
-    requiredLevel: 8
-    requiredItem: {fileID: 11400000, guid: 370bcc41d43229f4fa82dd70c7b2b0d8, type: 2}
+  evolutions: []
