@@ -28,5 +28,9 @@ public class CameraController : MonoBehaviour
             // Look at the player
             transform.LookAt(cameraTarget.position);
         }
+        else
+        {
+            cameraTarget = GameObject.FindGameObjectWithTag("CamLookAt").transform;
+        }
     }
 }

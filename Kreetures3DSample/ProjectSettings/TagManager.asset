@@ -8,6 +8,7 @@ TagManager:
   - DialogBox
   - DialogText
   - PartyScreen
+  - CamLookAt
   layers:
   - Default
   - TransparentFX

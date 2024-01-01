@@ -455,6 +455,7 @@
 "Assets/Scripts/Saving/ISavable.cs"
 "Assets/Scripts/Saving/SavableEntity.cs"
 "Assets/Scripts/Saving/SavingSystem.cs"
+"Assets/Scripts/SceneManagement/Portal.cs"
 "Assets/Scripts/SceneManagement/SceneDetails.cs"
 "Assets/Scripts/UI/MenuController.cs"
 "Assets/Scripts/Util/ScriptableObjectDB.cs"

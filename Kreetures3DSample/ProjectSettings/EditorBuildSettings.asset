@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EvolutionScene.unity
     guid: 108aae0cf3c9cd043a0828cdee6e1a3a
+  - enabled: 1
+    path: Assets/Scenes/Route6.unity
+    guid: 6c24732ac79178943bf85124fcb2fda5
   m_configObjects: {}
