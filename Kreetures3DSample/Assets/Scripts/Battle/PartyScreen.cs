@@ -38,8 +38,7 @@ public class PartyScreen : MonoBehaviour
         for (int i = 0; i < memberSlots.Length; i++)
         {
             if (i < kreetures.Count)
-			{                
-                kreetures[i].Init();
+			{                                
                 memberSlots[i].gameObject.SetActive(true);
                 memberSlots[i].Init(kreetures[i]);
             }                

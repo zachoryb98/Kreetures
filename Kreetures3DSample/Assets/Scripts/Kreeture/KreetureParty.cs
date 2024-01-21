@@ -69,6 +69,11 @@ public class KreetureParty : MonoBehaviour
 		return evolutions;
     }
 
+	public void PartyUpdated()
+	{
+		OnUpdated?.Invoke();
+	}
+
 	public static KreetureParty GetPlayerParty()
 	{
 		var player = GameManager.Instance.playerController;

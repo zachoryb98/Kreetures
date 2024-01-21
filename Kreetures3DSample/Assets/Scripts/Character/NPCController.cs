@@ -21,12 +21,14 @@ public class NPCController : MonoBehaviour, Interactable, ISavable
 
     ItemGiver itemGiver;
     KreetureGiver kreetureGiver;
+    HealingNPC healer;
 
     private void Awake()
     {
         playerControls = new PlayerInput();
         itemGiver = GetComponent<ItemGiver>();
         kreetureGiver = GetComponent<KreetureGiver>();
+        healer = GetComponent<HealingNPC>();
     }
 
     public IEnumerator Interact()
@@ -72,6 +74,10 @@ public class NPCController : MonoBehaviour, Interactable, ISavable
             {
                 yield return DialogManager.Instance.ShowDialog(activeQuest.Base.InProgressDialogue);
             }
+        }
+        else if (healer != null)
+        {
+            yield return healer.Heal(GameManager.Instance.playerController.transform, dialog);
         }
         else
         {
